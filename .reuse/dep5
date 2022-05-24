@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: cap-sflight
-Upstream-Contact: <Steffen Weinstock (steffen.weinstock@sap.com)>
-Source: https://github.com/sap-samples/cap-sflight
+Upstream-Name: fiori-elements-v4-cap-advanced
+Upstream-Contact: <Daniel Schlachter (daniel.schlachter@sap.com)>
+Source: https://github.com/SAP-samples/fiori-elements-v4-cap-advanced as a fork of https://github.com/sap-samples/cap-sflight
 Disclaimer: The code in this project may include calls to APIs (“API Calls”) of
  SAP or third-party products or services developed outside of this project
  (“External Products”).
@@ -25,5 +25,5 @@ Disclaimer: The code in this project may include calls to APIs (“API Calls”)
  parties the right to use of access any SAP External Product, through API Calls.
 
 Files: *
-Copyright: 2021 SAP SE or an SAP affiliate company and cap-sflight contributors
+Copyright: 2022 SAP SE or an SAP affiliate company and cap-sflight contributors
 License: Apache-2.0
