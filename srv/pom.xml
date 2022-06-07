@@ -152,79 +152,79 @@
 
 								<command>deploy --to sql --dry &gt;
 									"${project.basedir}/src/main/resources/schema.sql"</command>
-              </commands>
-            </configuration>
-          </execution>
+							</commands>
+						</configuration>
+					</execution>
 
-          <execution>
-            <id>cds.generate</id>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <configuration>
-              <basePackage>cds.gen</basePackage>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+					<execution>
+						<id>cds.generate</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<basePackage>cds.gen</basePackage>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
-      <!-- SUREFIRE PLUGIN -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M7</version>
-        <configuration>
-          <failIfNoTests>true</failIfNoTests>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+			<!-- SUREFIRE PLUGIN -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M7</version>
+				<configuration>
+					<failIfNoTests>true</failIfNoTests>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
-  <profiles>
-    <!-- A profile that uses global installation of @sap/cds-dk -->
-    <profile>
-      <id>cdsdk-global</id>
-      <properties>
-        <cdsdk-global>true</cdsdk-global>
-      </properties>
-    </profile>
-    <profile>
-      <id>no-cds</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.sap.cds</groupId>
-            <artifactId>cds-maven-plugin</artifactId>
-            <version>${cds.services.version}</version>
-            <executions>
-              <execution>
-                <id>cds.clean</id>
-                <phase>none</phase>
-              </execution>
+	<profiles>
+		<!-- A profile that uses global installation of @sap/cds-dk -->
+		<profile>
+			<id>cdsdk-global</id>
+			<properties>
+				<cdsdk-global>true</cdsdk-global>
+			</properties>
+		</profile>
+		<profile>
+			<id>no-cds</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.sap.cds</groupId>
+						<artifactId>cds-maven-plugin</artifactId>
+						<version>${cds.services.version}</version>
+						<executions>
+							<execution>
+								<id>cds.clean</id>
+								<phase>none</phase>
+							</execution>
 
-              <execution>
-                <id>cds.install-node</id>
-                <phase>none</phase>
-              </execution>
+							<execution>
+								<id>cds.install-node</id>
+								<phase>none</phase>
+							</execution>
 
-              <execution>
-                <id>install-cdsdk</id>
-                <phase>none</phase>
-              </execution>
+							<execution>
+								<id>install-cdsdk</id>
+								<phase>none</phase>
+							</execution>
 
-              <execution>
-                <id>cds.build</id>
-                <phase>none</phase>
-              </execution>
+							<execution>
+								<id>cds.build</id>
+								<phase>none</phase>
+							</execution>
 
-              <execution>
-                <id>cds.generate</id>
-                <phase>none</phase>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
+							<execution>
+								<id>cds.generate</id>
+								<phase>none</phase>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
