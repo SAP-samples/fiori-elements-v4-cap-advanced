@@ -33,7 +33,10 @@
   "cds": {
     "requires": {
       "db": {
-        "kind": "sql"
+        "kind": "sqlite",
+        "credentials": {
+          "database": "sqlite.db"
+        }
       },
       "[production]": {
         "db": {

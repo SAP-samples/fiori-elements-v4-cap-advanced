@@ -113,13 +113,14 @@ this.after('READ', 'Booking', (data, req) => {
   }
 
   this._update_totals_supplement = async function (booking) {
-    let { totals }  = await SELECT.one `coalesce (sum (Price),0) as totals` .from (BookingSupplement.drafts) .where `to_Booking_BookingUUID = ${booking}`
-    const { totals1 }  = await SELECT.one `coalesce (sum (Price),0) as totals1` .from (BookingSupplement) .where `to_Booking_BookingUUID = ${booking}`
-    totals += totals1
-    if (totals != 0) {
-      console.log('Total: ', totals)
-    }
-    await UPDATE (Booking.drafts, booking) .with({TotalSupplPrice: totals})
+    //let { totals }  = await SELECT.one `coalesce (sum (Price),0) as totals` .from (BookingSupplement.drafts) .where `to_Booking_BookingUUID = ${booking}`
+    let { totals }  = await SELECT.one `coalesce (sum (Price),0) as totals` .from (BookingSupplement) .where `to_Booking_BookingUUID = ${booking}`
+    // totals += totals1
+    // if (!totals) {
+    //   totals = 0.1
+    // }
+    await UPDATE (Booking, booking) .with({TotalSupplPrice: totals})
+    console.log('yo')
     return totals
   }
 
