@@ -86,6 +86,20 @@ init() {
   return this._update_totals4 (travel)
 }})
 
+this.after('READ', 'Booking', (data, req) => {
+
+  data = Array.isArray(data) ? data : [data] //if we read a single item, it is an object. If we read multiple bookings data is an array. -> Converting to array
+  
+  
+  data.forEach(
+    (element, index, array) => {
+      this._update_totals_supplement(element.BookingUUID)
+    }
+  )
+
+}
+)
+
 
   /**
    * Helper to re-calculate a Travel's TotalPrice from BookingFees, FlightPrices and Supplement Prices.
@@ -99,8 +113,14 @@ init() {
   }
 
   this._update_totals_supplement = async function (booking) {
-    const { totals }  = await SELECT.one `coalesce (sum (Price),0) as totals` .from (BookingSupplement.drafts) .where `to_Booking_BookingUUID = ${booking}`
-    return  UPDATE (Booking.drafts, booking) .with({TotalSupplPrice: totals})
+    let { totals }  = await SELECT.one `coalesce (sum (Price),0) as totals` .from (BookingSupplement.drafts) .where `to_Booking_BookingUUID = ${booking}`
+    const { totals1 }  = await SELECT.one `coalesce (sum (Price),0) as totals1` .from (BookingSupplement) .where `to_Booking_BookingUUID = ${booking}`
+    totals += totals1
+    if (totals != 0) {
+      console.log('Total: ', totals)
+    }
+    await UPDATE (Booking.drafts, booking) .with({TotalSupplPrice: totals})
+    return totals
   }
 
   /**
