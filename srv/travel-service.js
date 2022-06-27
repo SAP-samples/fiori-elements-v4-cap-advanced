@@ -98,14 +98,8 @@ init() {
   }
 
   this._update_totals_supplement = async function (booking) {
-    //let { totals }  = await SELECT.one `coalesce (sum (Price),0) as totals` .from (BookingSupplement.drafts) .where `to_Booking_BookingUUID = ${booking}`
     let { totals }  = await SELECT.one `coalesce (sum (Price),0) as totals` .from (BookingSupplement) .where `to_Booking_BookingUUID = ${booking}`
-    // totals += totals1
-    // if (!totals) {
-    //   totals = 0.1
-    // }
     await UPDATE (Booking, booking) .with({TotalSupplPrice: totals})
-    console.log('yo')
     return totals
   }
 
