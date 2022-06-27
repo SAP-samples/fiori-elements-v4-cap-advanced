@@ -112,6 +112,21 @@ init() {
     if (BeginDate > EndDate) req.error (400, `Begin Date ${BeginDate} must be before End Date ${EndDate}.`, 'in/BeginDate')
   })
 
+  /**
+   * Calculate the progress of the travel booking.
+   */
+
+  // Travel is new (0 bookings) = 10%
+  // Travel contains at least one booking = 50%
+  // Travel contains at least two bookings = 65%
+  // Supplement target reached + 5 %
+  // Travel is accepted = 100%
+this.before ('SAVE', 'Travel', req => {
+  debugger
+
+
+})
+
 
   //
   // Action Implementations...
