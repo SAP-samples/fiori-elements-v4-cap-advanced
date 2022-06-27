@@ -86,21 +86,6 @@ init() {
   return this._update_totals4 (travel)
 }})
 
-this.after('READ', 'Booking', (data, req) => {
-
-  data = Array.isArray(data) ? data : [data] //if we read a single item, it is an object. If we read multiple bookings data is an array. -> Converting to array
-  
-  
-  data.forEach(
-    (element, index, array) => {
-      this._update_totals_supplement(element.BookingUUID)
-    }
-  )
-
-}
-)
-
-
   /**
    * Helper to re-calculate a Travel's TotalPrice from BookingFees, FlightPrices and Supplement Prices.
    */
