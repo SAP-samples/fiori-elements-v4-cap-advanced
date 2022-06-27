@@ -46,6 +46,7 @@ entity Booking : managed {
   FlightDate        : Date;
   FlightPrice       : Decimal(16, 3);
   CurrencyCode      : Currency;
+  TotalSupplPrice   : Decimal(16, 3) @readonly;
   BookingStatus     : Association to BookingStatus;
   to_BookSupplement : Composition of many BookingSupplement on to_BookSupplement.to_Booking = $self;
   to_Carrier        : Association to Airline;

@@ -71,17 +71,34 @@ init() {
   }})
 
 
-  /**
-   * Update the Travel's TotalPrice when a Supplement's Price is modified.
-   */
-  this.after ('PATCH', 'BookingSupplement', async (_,req) => { if ('Price' in req.data) {
-    // We need to fetch the Travel's UUID for the given Supplement target
-    const { travel } = await SELECT.one `to_Travel_TravelUUID as travel` .from (Booking.drafts)
-      .where `BookingUUID = ${ SELECT.one `to_Booking_BookingUUID` .from (BookingSupplement.drafts).where({BookSupplUUID:req.data.BookSupplUUID}) }`
-      // .where `BookingUUID = ${ SELECT.one `to_Booking_BookingUUID` .from (req._target) }`
-      //> REVISIT: req._target not supported for subselects -> see tests
-    return this._update_totals4 (travel)
-  }})
+/**
+ * Update the Travel's TotalPrice when a Supplement's Price is modified.
+ */
+ this.after ('PATCH', 'BookingSupplement', async (_,req) => { if ('Price' in req.data) {
+  // We need to fetch the Travel's UUID for the given Supplement target
+  const { booking } = await SELECT.one `to_Booking_BookingUUID as booking` .from (BookingSupplement.drafts).where({BookSupplUUID:req.data.BookSupplUUID})
+  const { travel } = await SELECT.one `to_Travel_TravelUUID as travel` .from (Booking.drafts)
+    .where `BookingUUID = ${booking}`
+    // .where `BookingUUID = ${ SELECT.one `to_Booking_BookingUUID` .from (req._target) }`
+    //> REVISIT: req._target not supported for subselects -> see tests
+
+ await this._update_totals_supplement (booking)
+  return this._update_totals4 (travel)
+}})
+
+this.after('READ', 'Booking', (data, req) => {
+
+  data = Array.isArray(data) ? data : [data] //if we read a single item, it is an object. If we read multiple bookings data is an array. -> Converting to array
+  
+  
+  data.forEach(
+    (element, index, array) => {
+      this._update_totals_supplement(element.BookingUUID)
+    }
+  )
+
+}
+)
 
 
   /**
@@ -95,6 +112,17 @@ init() {
     }` })
   }
 
+  this._update_totals_supplement = async function (booking) {
+    //let { totals }  = await SELECT.one `coalesce (sum (Price),0) as totals` .from (BookingSupplement.drafts) .where `to_Booking_BookingUUID = ${booking}`
+    let { totals }  = await SELECT.one `coalesce (sum (Price),0) as totals` .from (BookingSupplement) .where `to_Booking_BookingUUID = ${booking}`
+    // totals += totals1
+    // if (!totals) {
+    //   totals = 0.1
+    // }
+    await UPDATE (Booking, booking) .with({TotalSupplPrice: totals})
+    console.log('yo')
+    return totals
+  }
 
   /**
    * Validate a Travel's edited data before save.
