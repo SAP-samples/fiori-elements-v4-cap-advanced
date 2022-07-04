@@ -103,6 +103,10 @@ init() {
     return totals
   }
 
+  this._update_progress = async function (travel, progress){
+    return await UPDATE (travel) . with({Progress : progress})
+  }
+
   /**
    * Validate a Travel's edited data before save.
    */
@@ -119,12 +123,21 @@ init() {
   // Travel is new (0 bookings) = 10%
   // Travel contains at least one booking = 50%
   // Travel contains at least two bookings = 65%
-  // Supplement target reached + 5 %
+  // Supplement target reached + 5 % per booking, max 90%
   // Travel is accepted = 100%
-this.before ('SAVE', 'Travel', req => {
-  debugger
+this.before ('SAVE', 'Travel', async req => {
+  if (!req.event === 'CREATE' && !req.event === 'UPDATE') return //only calculate if create or update
+  let score = 10
+  const { TravelUUID } = req.data
+  const res = await SELECT .from(Booking) .where `to_Travel_TravelUUID = ${TravelUUID}`
+  if (res.length >= 1) score += 40
+  if (res.length >= 2) score += 15
 
-
+  res.forEach(element => {
+    if (element.TotalSupplPrice > 70) score += 5
+  });
+  if (score > 90) score = 90;
+  req.data.Progress = score
 })
 
 
@@ -132,8 +145,14 @@ this.before ('SAVE', 'Travel', req => {
   // Action Implementations...
   //
 
-  this.on ('acceptTravel', req => UPDATE (req._target) .with ({TravelStatus_code:'A'}))
-  this.on ('rejectTravel', req => UPDATE (req._target) .with ({TravelStatus_code:'X'}))
+  this.on ('acceptTravel', async req => {
+    await UPDATE (req._target) .with ({TravelStatus_code:'A'})
+    return this._update_progress(req.target, 100)
+  })
+  this.on ('rejectTravel', async req => {
+    await UPDATE (req._target) .with ({TravelStatus_code:'X'})
+    return this._update_progress(req.target, 0)
+  })
   this.on ('deductDiscount', async req => {
     let discount = req.data.percent / 100
     let succeeded = await UPDATE (req._target)
