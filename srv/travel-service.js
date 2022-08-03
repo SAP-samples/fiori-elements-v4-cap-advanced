@@ -71,20 +71,49 @@ init() {
   }})
 
 
-/**
- * Update the Travel's TotalPrice when a Supplement's Price is modified.
- */
- this.after ('PATCH', 'BookingSupplement', async (_,req) => { if ('Price' in req.data) {
-  // We need to fetch the Travel's UUID for the given Supplement target
-  const { booking } = await SELECT.one `to_Booking_BookingUUID as booking` .from (BookingSupplement.drafts).where({BookSupplUUID:req.data.BookSupplUUID})
-  const { travel } = await SELECT.one `to_Travel_TravelUUID as travel` .from (Booking.drafts)
-    .where `BookingUUID = ${booking}`
-    // .where `BookingUUID = ${ SELECT.one `to_Booking_BookingUUID` .from (req._target) }`
-    //> REVISIT: req._target not supported for subselects -> see tests
+  /**
+   * Update the Travel's TotalPrice when a Supplement's Price is modified.
+   */
+  this.after ('PATCH', 'BookingSupplement', async (_,req) => { if ('Price' in req.data) {
+    // We need to fetch the Travel's UUID for the given Supplement target
+    const { travel } = await SELECT.one `to_Travel_TravelUUID as travel` .from (Booking.drafts)
+      .where `BookingUUID = ${ SELECT.one `to_Booking_BookingUUID` .from (BookingSupplement.drafts).where({BookSupplUUID:req.data.BookSupplUUID}) }`
+      // .where `BookingUUID = ${ SELECT.one `to_Booking_BookingUUID` .from (req._target) }`
+      //> REVISIT: req._target not supported for subselects -> see tests
+    return this._update_totals4 (travel)
+  }})
 
- await this._update_totals_supplement (booking)
-  return this._update_totals4 (travel)
-}})
+  /**
+   * Update the Travel's TotalPrice when a Booking Supplement is deleted.
+   */
+  this.on('CANCEL', BookingSupplement, async (req, next) => {
+    // Find out which travel is affected before the delete
+    const { DraftAdministrativeData_DraftUUID, BookSupplUUID } = req.data
+    const { to_Travel_TravelUUID } = await SELECT.one
+      .from(BookingSupplement.drafts, ['to_Travel_TravelUUID'])
+      .where({ DraftAdministrativeData_DraftUUID, BookSupplUUID })
+    // Delete handled by generic handlers
+    const res = await next()
+    // After the delete, update the totals
+    await this._update_totals4(to_Travel_TravelUUID)
+    return res
+  })
+  
+  /**
+   * Update the Travel's TotalPrice when a Booking is deleted.
+   */
+  this.on('CANCEL', Booking, async (req, next) => {
+    // Find out which travel is affected before the delete
+    const { DraftAdministrativeData_DraftUUID, BookingUUID } = req.data
+    const { to_Travel_TravelUUID } = await SELECT.one
+      .from(Booking.drafts, ['to_Travel_TravelUUID'])
+      .where({ DraftAdministrativeData_DraftUUID, BookingUUID })
+    // Delete handled by generic handlers
+    const res = await next()
+    // After the delete, update the totals
+    await this._update_totals4(to_Travel_TravelUUID)
+    return res
+  })
 
   /**
    * Helper to re-calculate a Travel's TotalPrice from BookingFees, FlightPrices and Supplement Prices.

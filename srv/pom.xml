@@ -1,78 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<artifactId>sflight</artifactId>
-		<groupId>com.sap.cap</groupId>
-		<version>${revision}</version>
-	</parent>
+  <parent>
+    <artifactId>sflight</artifactId>
+    <groupId>com.sap.cap</groupId>
+    <version>${revision}</version>
+  </parent>
 
-	<artifactId>srv</artifactId>
-	<packaging>jar</packaging>
+  <artifactId>srv</artifactId>
+  <packaging>jar</packaging>
 
-	<name>srv</name>
+  <name>srv</name>
 
-	<!-- ACTUAL DEPENDENCIES -->
-	<dependencies>
-		<dependency>
-			<groupId>com.sap.cds</groupId>
-			<artifactId>cds-starter-spring-boot-odata</artifactId>
-		</dependency>
+  <!-- ACTUAL DEPENDENCIES -->
+  <dependencies>
+    <dependency>
+      <groupId>com.sap.cds</groupId>
+      <artifactId>cds-starter-spring-boot-odata</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>com.sap.cds</groupId>
-			<artifactId>cds-starter-cloudfoundry</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>com.sap.cds</groupId>
+      <artifactId>cds-starter-cloudfoundry</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>runtime</scope>
+    </dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+    </dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
 
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-test</artifactId>
+      <scope>test</scope>
+    </dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-	   </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
 
+    <dependency>
+      <!-- for kyma deployment -->
+      <groupId>com.sap.cds</groupId>
+      <artifactId>cds-feature-k8s</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
 
-	</dependencies>
-
-	<build>
-		<finalName>${project.artifactId}</finalName>
-		<plugins>
-			<!-- SPRING BOOT PLUGIN -->
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${spring.boot.version}</version>
-				<configuration>
-					<skip>false</skip>
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <!-- SPRING BOOT PLUGIN -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring.boot.version}</version>
+        <configuration>
+          <skip>false</skip>
           <workingDirectory>..</workingDirectory>
 				</configuration>
 				<executions>
@@ -91,7 +94,7 @@
 			<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.3.0</version>
+                <version>3.2.0</version>
                 <executions>
                     <execution>
                         <id>add-source</id>
