@@ -24,19 +24,6 @@ entity Travel : managed {
   to_Booking     : Composition of many Booking on to_Booking.to_Travel = $self;
 };
 
-annotate Travel with @(
- Capabilities: {
-        FilterRestrictions     : {FilterExpressionRestrictions : [{
-            Property           : 'BeginDate',
-            AllowedExpressions : 'SingleRange'
-        },
-        {
-            Property           : 'EndDate',
-            AllowedExpressions : 'SingleRange'
-        }]}
-    });
-
-
 entity Booking : managed {
   key BookingUUID   : UUID;
   BookingID         : Integer @Core.Computed;

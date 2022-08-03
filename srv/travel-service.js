@@ -144,28 +144,6 @@ init() {
 
   this.on ('acceptTravel', req => UPDATE (req._target) .with ({TravelStatus_code:'A'}))
   this.on ('rejectTravel', req => UPDATE (req._target) .with ({TravelStatus_code:'X'}))
-  this.on ('deductDiscount', async req => {
-    let discount = req.data.percent / 100
-    let succeeded = await UPDATE (req._target)
-      .where `TravelStatus_code != 'A'`
-      .and `BookingFee is not null`
-      .with (`
-        TotalPrice = round (TotalPrice - BookingFee * ${discount}, 3),
-        BookingFee = round (BookingFee - BookingFee * ${discount}, 3)
-      `)
-    if (!succeeded) { //> let's find out why...
-      let travel = await SELECT.one `TravelID as ID, TravelStatus_code as status, BookingFee` .from (req._target)
-      if (!travel) throw req.reject (404, `Travel "${travel.ID}" does not exist; may have been deleted meanwhile.`)
-      if (travel.status === 'A') req.reject (400, `Travel "${travel.ID}" has been approved already.`)
-      if (travel.BookingFee == null) throw req.reject (404, `No discount possible, as travel "${travel.ID}" does not yet have a booking fee added.`)
-    } else {
-      // Note: it is important to read from this, not db to include draft handling
-      // REVISIT: through req._target workaround, IsActiveEntity is non-enumerable, which breaks this.read(Travel, req.params[0])
-      const [{ TravelUUID, IsActiveEntity }] = req.params
-      return this.read(Travel, { TravelUUID, IsActiveEntity })
-    }
-  })
-
 
   // Add base class's handlers. Handlers registered above go first.
   return super.init()
