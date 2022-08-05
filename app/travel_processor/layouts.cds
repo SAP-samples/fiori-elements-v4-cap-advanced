@@ -68,12 +68,7 @@ annotate TravelService.Travel with @UI : {
         ID     : 'TravelData',
         Target : '@UI.FieldGroup#TravelData',
         Label  : '{i18n>GeneralInformation}'
-      },
-       {
-        $Type : 'UI.ReferenceFacet',
-        Target : '@UI.FieldGroup#TotalPrice',
-        Label : '{i18n>Prices}',
-        }
+      }
       ]
   },
    {  // booking list
@@ -85,25 +80,12 @@ annotate TravelService.Travel with @UI : {
     { Value : TravelID               },
     { Value : to_Agency_AgencyID     },
     { Value : to_Customer_CustomerID },
-    { Value : Description            },
-    {
-      $Type       : 'UI.DataField',
-      Value       : TravelStatus_code,
-      Criticality : TravelStatus.criticality,
-      Label : '{i18n>Status}' // label only necessary if differs from title of element
-    }
+    { Value : Description            }
   ]},
   FieldGroup #DateData : {Data : [
     { $Type : 'UI.DataField', Value : BeginDate },
     { $Type : 'UI.DataField', Value : EndDate }
-  ]},
-  FieldGroup #TotalPrice  : {Data : [
-      {
-           $Type : 'UI.DataField',
-            Value : TotalPrice
-  }
-  ]
-  }   
+  ]}
 };
 
 annotate TravelService.Booking with @UI : {
