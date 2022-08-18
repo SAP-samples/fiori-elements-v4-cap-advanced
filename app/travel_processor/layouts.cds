@@ -34,7 +34,9 @@ annotate TravelService.Travel with @UI : {
   SelectionFields : [
     to_Agency_AgencyID,
     to_Customer_CustomerID,
-    TravelStatus_code
+    TravelStatus_code,
+    BeginDate,
+    EndDate
   ],
   LineItem : [
     { $Type  : 'UI.DataFieldForAction', Action : 'TravelService.acceptTravel',   Label  : '{i18n>AcceptTravel}'   },
