@@ -9,6 +9,8 @@ service TravelService @(path:'/processor') {
     { grant: ['*'], to: 'admin'}
   ])
 
+entity SupplementScope as projection on my.SupplementScope;
+
   // Travel: To avoid number formatting of the travel ID, make it a String
   entity Travel as projection on my.Travel {
     *,
