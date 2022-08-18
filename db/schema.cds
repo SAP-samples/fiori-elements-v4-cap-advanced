@@ -48,6 +48,7 @@ entity BookingSupplement : managed {
   key BookSupplUUID   : UUID;
   BookingSupplementID : Integer @Core.Computed;
   Price               : Decimal(16, 3);
+  DeliveryPreference  : Association to MealOptionDeliveryPreference; 
   CurrencyCode        : Currency;
   to_Booking          : Association to Booking;
   to_Travel           : Association to Travel;
@@ -99,7 +100,6 @@ annotate TravelService.Travel with @(
     Deletable: TravelStatus.insertDeleteRestriction
  }   
 );
-
 @odata.singleton
 entity SupplementScope {
   MinimumValue           : Integer @Common.Label: 'Minimum Value';
@@ -107,4 +107,12 @@ entity SupplementScope {
   TargetValue            : Integer @Common.Label: 'Target Value';
   DeviationRangeLowValue : Integer @Common.Label: 'Deviation Range Threshold';
   ToleranceRangeLowValue : Integer @Common.Label: 'Tolerance Range Threshold';  
+}
+
+entity MealOptionDeliveryPreference : CodeList {
+  key code: String enum {
+    SoonAfterTakeoff = 'S';
+    Midflight = 'M';
+    Late = 'L';
+  } default 'M';
 }
