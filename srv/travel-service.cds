@@ -17,6 +17,7 @@ service TravelService @(path:'/processor') {
     action createTravelByTemplate() returns Travel;
     action rejectTravel();
     action acceptTravel();
+    action deductDiscount(@(UI.ParameterDefaultValue : 5)percent: Percentage not null @mandatory ) returns Travel;
   };
 
   // Passenger: Add joined property 'FullName' and composition 'to_Booking'
