@@ -12,6 +12,7 @@ service TravelService @(path:'/processor') {
     action createTravelByTemplate() returns Travel;
     action rejectTravel();
     action acceptTravel();
+    action deductDiscount(@(UI.ParameterDefaultValue : 5)percent: Percentage not null @mandatory ) returns Travel;
   };
 
   // Ensure all masterdata entities are available to clients
