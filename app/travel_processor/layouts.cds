@@ -62,7 +62,7 @@ annotate TravelService.Travel with @UI : {
       {
           $Type : 'UI.DataFieldForAction',
           Action : 'TravelService.deductDiscount',
-          Label : '{i18n>DeductDiscount1}',
+          Label : '{i18n>DeductDiscount}',
       }
   ],
   Facets : [{
