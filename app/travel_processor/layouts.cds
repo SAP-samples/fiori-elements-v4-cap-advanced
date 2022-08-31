@@ -478,3 +478,15 @@ annotate TravelService.Travel with {
     Description @UI.MultiLineText : true
     @UI.Placeholder : '{i18n>DescrPlcehlder}'
 };
+
+annotate TravelService.Travel @(
+    Common.SideEffects#ReactonItemCreationOrDeletion : {
+        SourceEntities : [
+            to_Booking
+        ],
+       TargetProperties : [
+           'TotalPrice'
+       ]
+    }
+);
+
