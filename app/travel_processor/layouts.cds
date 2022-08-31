@@ -107,7 +107,8 @@ annotate TravelService.Travel with @UI : {
                 $Type  : 'UI.ReferenceFacet',
                 ID     : 'TravelData',
                 Target : '@UI.FieldGroup#TravelData',
-                Label  : '{i18n>GeneralInformation}'
+                Label  : '{i18n>GeneralInformation}',
+                ![@UI.PartOfPreview] : false
             }]
         },
         { // booking list
