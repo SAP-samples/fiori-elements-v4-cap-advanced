@@ -167,11 +167,11 @@ init() {
 
   this.on ('acceptTravel', async req => {
     await UPDATE (req._target) .with ({TravelStatus_code:'A'})
-    return this._update_progress(req.target, 100)
+    return this._update_progress(req._target, 100)
   })
   this.on ('rejectTravel', async req => {
     await UPDATE (req._target) .with ({TravelStatus_code:'X'})
-    return this._update_progress(req.target, 0)
+    return this._update_progress(req._target, 0)
   })
 
   this._update_progress = async function (travel, progress){
