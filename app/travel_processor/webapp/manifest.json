@@ -10,7 +10,8 @@
             "supportedLocales": [
                 "en",
                 "de",
-                "fr"
+                "fr",
+                ""
             ],
             "fallbackLocale": "en"
         },
@@ -85,7 +86,8 @@
                     "supportedLocales": [
                         "en",
                         "de",
-                        "fr"
+                        "fr",
+                        ""
                     ],
                     "fallbackLocale": "en"
                 }
