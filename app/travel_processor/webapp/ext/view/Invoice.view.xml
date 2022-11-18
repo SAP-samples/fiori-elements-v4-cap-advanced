@@ -1,0 +1,8 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="sap.fe.cap.travel.ext.view.Invoice">
+    <!-- For the sake of simplicity we use a hard-coded PDF Example -->
+    <PDFViewer source="InvoiceExample.pdf" title="Booking Invoice" height="100%">
+        <layoutData>
+            <FlexItemData growFactor="1" />
+        </layoutData>
+    </PDFViewer>
+</mvc:View>
