@@ -1,0 +1,41 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:macros="sap.fe.macros" xmlns:form="sap.ui.layout.form" id="review" controllerName="sap.fe.cap.travel.ext.view.TravelCreate" xmlns="sap.m">
+    <NavContainer id="wizardNavContainer">
+        <pages>
+            <Page id="createTravelPage" title="Guided Travel Creation">
+                <content>
+                    <Wizard id="CreateTravelWizard" class="sapUiResponsivePadding--header sapUiResponsivePadding--content" complete="reviewTravel">
+                        <WizardStep id="stepAgency" title="Agency" validated="true">
+                            <VBox width="800px">      
+                                <Text text="Select the agency. For additional information open the Internal Travel Guidelines." />
+                                <Link text="Internal Travel Guidelines" href="abc" />   
+                                <macros:Field metaPath="to_Agency_AgencyID" id="Category" />
+                            </VBox>
+                        </WizardStep>
+                        <WizardStep id="stepDate" validated="true" title="Travel Dates" >
+                            <macros:Form metaPath="@com.sap.vocabularies.UI.v1.FieldGroup#DateData" id="dateForm" />
+                        </WizardStep>
+                        <WizardStep id="stepGeneral" validated="true" title="Customer Information">
+                            <macros:Form metaPath="@com.sap.vocabularies.UI.v1.FieldGroup#Customer" id="generalForm" />
+                        </WizardStep>
+                        <WizardStep id="stepPricing" validated="true" title="Pricing">
+                            <macros:Form metaPath="@com.sap.vocabularies.UI.v1.FieldGroup#PriceData" id="priceForm" />
+                        </WizardStep>
+                    </Wizard>
+                </content>
+                <footer>
+                    <OverflowToolbar>
+                        <ToolbarSpacer />
+                        <Button text="Cancel" press="cancel" />
+                    </OverflowToolbar>
+                </footer>
+            </Page>
+            <Page id="reviewPage" title="Review New Travel">
+                <content>
+                    <macros:Form readOnly="true" metaPath="@com.sap.vocabularies.UI.v1.FieldGroup#Review" id="reviewGeneral" />
+                    <MessageStrip class="sapUiSmallMarginBottom" type="Warning" text="By clicking on Create New Travel you accept you read and accept our internal travel guidelines." showIcon="true" />
+                    <Button text="Create New Travel" press="createTravel" type="Emphasized" />
+                </content>     
+            </Page>
+        </pages>
+    </NavContainer>
+</mvc:View>
