@@ -1,0 +1,44 @@
+[{
+  "TotalPrice": 3028.23,
+  "ItemsPrice": 2978,
+  "ShippingPrice": 50.23,
+  "ItemCount": 4,
+  "CartItems": [{
+    "ProductId": "HT-1000",
+    "ItemId": "0",
+    "Quantity": 1,
+    "Price": 956,
+    "TotalPrice": 956,
+    "Name": "Notebook Basic 15",
+    "SupplierName": "Very Best Screens",
+    "PictureUrl": "/localService/data/images/HT-1000.jpg"
+  },{
+    "ProductId": "HT-1060",
+    "ItemId": "1",
+    "Quantity": 1,
+    "Price": 9,
+    "TotalPrice": 9,
+    "Name": "Cordless Mouse",
+    "SupplierName": "Oxynum",
+    "PictureUrl": "/localService/data/images/HT-1060.jpg"
+  },{
+    "ProductId": "HT-1010",
+    "ItemId": "1",
+    "Quantity": 1,
+    "Price": 1999,
+    "TotalPrice": 1999,
+    "Name": "Notebook Professional 15",
+    "SupplierName": "Very Best Screens",
+    "PictureUrl": "/localService/data/images/HT-1010.jpg"
+  },{
+    "ProductId": "HT-1063",
+    "ItemId": "1",
+    "Quantity": 1,
+    "Price": 14,
+    "TotalPrice": 14,
+    "Name": "Ergonomic Keyboard",
+    "SupplierName": "KB",
+    "PictureUrl": "/localService/data/images/HT-1063.jpg"
+  }
+   ]
+}]

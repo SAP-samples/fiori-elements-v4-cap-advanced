@@ -1,0 +1,363 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Alias="Measures" Namespace="Org.OData.Measures.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="sap.fe.fpm.video.MyWebshop">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Products" EntityType="sap.fe.fpm.video.MyWebshop.Products">
+                    <NavigationPropertyBinding Path="ProductCategory" Target="ProductCategory"/>
+                    <NavigationPropertyBinding Path="RelatedProducts" Target="Products"/>
+                    <NavigationPropertyBinding Path="SiblingEntity" Target="Products"/>
+                </EntitySet>
+                <EntitySet Name="ProductCategory" EntityType="sap.fe.fpm.video.MyWebshop.ProductCategory">
+                    <NavigationPropertyBinding Path="Products" Target="Products"/>
+                </EntitySet>
+                <Singleton Name="Cart" Type="sap.fe.fpm.video.MyWebshop.Cart">
+                    <NavigationPropertyBinding Path="CartItems" Target="CartItem"/>
+                </Singleton>
+                <EntitySet Name="CartItem" EntityType="sap.fe.fpm.video.MyWebshop.CartItem">
+                    <NavigationPropertyBinding Path="Product" Target="Products"/>
+                    <NavigationPropertyBinding Path="Cart" Target="Cart"/>
+                </EntitySet>
+            </EntityContainer>
+            <EntityType Name="Products">
+                <Key>
+                    <PropertyRef Name="ProductId"/>
+                    <PropertyRef Name="IsActiveEntity"/>
+                </Key>
+                <Property Name="ProductId" Type="Edm.String" Nullable="false"/>
+                <Property Name="Category" Type="Edm.String"/>
+                <Property Name="Name" Type="Edm.String"/>
+                <Property Name="ShortDescription" Type="Edm.String"/>
+                <Property Name="SupplierName" Type="Edm.String"/>
+                <Property Name="Weight" Type="Edm.Decimal" Scale="3" Precision="13"/>
+                <Property Name="WeightUnit" Type="Edm.String"/>
+                <Property Name="Price" Type="Edm.Decimal" Scale="4" Precision="23"/>
+                <Property Name="Status" Type="Edm.String"/>
+                <Property Name="CurrencyCode" Type="Edm.String"/>
+                <Property Name="DimensionWidth" Type="Edm.Decimal" Scale="3" Precision="13"/>
+                <Property Name="DimensionDepth" Type="Edm.Decimal" Scale="3" Precision="13"/>
+                <Property Name="DimensionHeight" Type="Edm.Decimal" Scale="3" Precision="13"/>
+                <Property Name="DimensionUnit" Type="Edm.String"/>
+                <Property Name="PictureUrl" Type="Edm.String"/>
+                <NavigationProperty Name="ProductCategory" Type="sap.fe.fpm.video.MyWebshop.ProductCategory"/>
+                <NavigationProperty Name="RelatedProducts" Type="Collection(sap.fe.fpm.video.MyWebshop.Products)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <Property Name="RelatedProducts_ProductId" Type="Edm.String"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="true"/>
+                <Property Name="HasActiveEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <Property Name="HasDraftEntity" Type="Edm.Boolean" Nullable="false" DefaultValue="false"/>
+                <NavigationProperty Name="DraftAdministrativeData" Type="sap.fe.fpm.video.MyWebshop.DraftAdministrativeData" ContainsTarget="true"/>
+                <NavigationProperty Name="SiblingEntity" Type="sap.fe.fpm.video.MyWebshop.Products"/>
+            </EntityType>
+            <EntityType Name="ProductCategory">
+                <Property Name="Category" Type="Edm.String"/>
+                <Property Name="CategoryName" Type="Edm.String"/>
+                <Property Name="NumberOfProducts" Type="Edm.Int32"/>
+                <NavigationProperty Name="Products" Type="Collection(sap.fe.fpm.video.MyWebshop.Products)"/>
+            </EntityType>
+            <EntityType Name="Cart">
+                <Property Name="CartId" Type="Edm.String"/>
+                <NavigationProperty Name="CartItems" Type="Collection(sap.fe.fpm.video.MyWebshop.CartItem)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <Property Name="ShipTo" Type="Edm.String"/>
+                <Property Name="TotalItems" Type="Edm.Int32"/>
+                <Property Name="ShippingPrice" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="ItemsPrice" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="TotalPrice" Type="Edm.Decimal" Scale="2" Precision="23"/>
+            </EntityType>
+            <EntityType Name="CartItem">
+                <Property Name="ItemId" Type="Edm.String"/>
+                <Property Name="CartId" Type="Edm.String"/>
+                <Property Name="ProductId" Type="Edm.String"/>
+                <Property Name="Name" Type="Edm.String"/>
+                <Property Name="SupplierName" Type="Edm.String"/>
+                <Property Name="PictureUrl" Type="Edm.String"/>
+                <Property Name="Quantity" Type="Edm.Int32"/>
+                <Property Name="Price" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <Property Name="TotalPrice" Type="Edm.Decimal" Scale="2" Precision="23"/>
+                <NavigationProperty Name="Product" Type="sap.fe.fpm.video.MyWebshop.Products">
+                    <ReferentialConstraint Property="ProductId" ReferencedProperty="ProductId"/>
+                </NavigationProperty>
+                <NavigationProperty Name="Cart" Type="sap.fe.fpm.video.MyWebshop.Cart"/>
+            </EntityType>
+            <EntityType Name="DraftAdministrativeData">
+                <Key>
+                    <PropertyRef Name="DraftUUID"/>
+                </Key>
+                <Property Name="DraftUUID" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="256"/>
+                <Property Name="DraftIsCreatedByMe" Type="Edm.Boolean"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="LastChangedByUser" Type="Edm.String" MaxLength="256"/>
+                <Property Name="InProcessByUser" Type="Edm.String" MaxLength="256"/>
+                <Property Name="DraftIsProcessedByMe" Type="Edm.Boolean"/>
+            </EntityType>
+            <Action Name="draftPrepare" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="sap.fe.fpm.video.MyWebshop.Products"/>
+                <Parameter Name="SideEffectsQualifier" Type="Edm.String"/>
+                <ReturnType Type="sap.fe.fpm.video.MyWebshop.Products"/>
+            </Action>
+            <Action Name="draftActivate" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="sap.fe.fpm.video.MyWebshop.Products"/>
+                <ReturnType Type="sap.fe.fpm.video.MyWebshop.Products"/>
+            </Action>
+            <Action Name="draftEdit" IsBound="true" EntitySetPath="in">
+                <Parameter Name="in" Type="sap.fe.fpm.video.MyWebshop.Products"/>
+                <Parameter Name="PreserveChanges" Type="Edm.Boolean"/>
+                <ReturnType Type="sap.fe.fpm.video.MyWebshop.Products"/>
+            </Action>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products">
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="Product"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Name"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Name"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Category"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SupplierName"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="HeaderFacetIdentifier1"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderGeneralInformation"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="RelatedProducts"/>
+                            <PropertyValue Property="Label" String="Related Products"/>
+                            <PropertyValue Property="Target" AnnotationPath="RelatedProducts/@UI.LineItem"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="UI.FieldGroup" Qualifier="HeaderGeneralInformation">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Name"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Category"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SupplierName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.EntityContainer/Products">
+                <Annotation Term="Common.DraftRoot">
+                    <Record Type="Common.DraftRootType">
+                        <PropertyValue Property="ActivationAction" String="sap.fe.fpm.video.MyWebshop.draftActivate"/>
+                        <PropertyValue Property="EditAction" String="sap.fe.fpm.video.MyWebshop.draftEdit"/>
+                        <PropertyValue Property="PreparationAction" String="sap.fe.fpm.video.MyWebshop.draftPrepare"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/ProductId">
+                <Annotation Term="Common.Label" String="Product ID"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/Category">
+                <Annotation Term="Common.Label" String="Product Category"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/Name">
+                <Annotation Term="Common.Label" String="Name"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/ShortDescription">
+                <Annotation Term="Common.Label" String="Short Description"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/SupplierName">
+                <Annotation Term="Common.Label" String="Company Name"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/Weight">
+                <Annotation Term="Common.Label" String="Weight"/>
+                <Annotation Term="Measures.Unit" Path="WeightUnit"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/WeightUnit">
+                <Annotation Term="Common.Label" String="Weight Unit"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/Price">
+                <Annotation Term="Common.Label" String="Price"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/Status">
+                <Annotation Term="Common.Label" String="Status"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/CurrencyCode">
+                <Annotation Term="Common.Label" String="Currency Code"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/DimensionWidth">
+                <Annotation Term="Common.Label" String="Width"/>
+                <Annotation Term="Measures.Unit" Path="DimensionUnit"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/DimensionDepth">
+                <Annotation Term="Common.Label" String="Depth"/>
+                <Annotation Term="Measures.Unit" Path="DimensionUnit"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/DimensionHeight">
+                <Annotation Term="Common.Label" String="Height"/>
+                <Annotation Term="Measures.Unit" Path="DimensionUnit"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/DimensionUnit">
+                <Annotation Term="Common.Label" String="Dimension Unit"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/PictureUrl">
+                <Annotation Term="Common.Label" String=" Product Image URL"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/IsActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/HasActiveEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/HasDraftEntity">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Products/DraftAdministrativeData">
+                <Annotation Term="UI.Hidden" Bool="true"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.ProductCategory/Category">
+                <Annotation Term="Common.Label" String="Product Category"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.ProductCategory/CategoryName">
+                <Annotation Term="Common.Label" String="Name"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Cart">
+                <Annotation Term="UI.FieldGroup" Qualifier="HeaderGeneralInformation">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="TotalItems"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ItemsPrice"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ShippingPrice"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="TotalPrice"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Cart/TotalItems">
+                <Annotation Term="Common.Label" String="Item Count"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Cart/ShippingPrice">
+                <Annotation Term="Common.Label" String="Shipping Price"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Cart/ItemsPrice">
+                <Annotation Term="Common.Label" String="Items Price"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.Cart/TotalPrice">
+                <Annotation Term="Common.Label" String="Total"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.CartItem">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="PictureUrl"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Name"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Quantity"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Price"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TotalPrice"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.CartItem/Name">
+                <Annotation Term="Common.Label" String="Name"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.CartItem/SupplierName">
+                <Annotation Term="Common.Label" String="Supplier"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.CartItem/PictureUrl">
+                <Annotation Term="UI.IsImageURL" Bool="true"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.CartItem/Quantity">
+                <Annotation Term="Common.Label" String="Quantity"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.CartItem/Price">
+                <Annotation Term="Common.Label" String="Price"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.CartItem/TotalPrice">
+                <Annotation Term="Common.Label" String="Total"/>
+            </Annotations>
+            <Annotations Target="sap.fe.fpm.video.MyWebshop.DraftAdministrativeData">
+                <Annotation Term="Common.Label" String="{i18n>Draft_DraftAdministrativeData}"/>
+                </Annotations>
+                <Annotations Target="sap.fe.fpm.video.MyWebshop.DraftAdministrativeData/DraftUUID">
+                    <Annotation Term="UI.Hidden" Bool="true"/>
+                    <Annotation Term="Common.Label" String="{i18n>Draft_DraftUUID}"/>
+                    </Annotations>
+                    <Annotations Target="sap.fe.fpm.video.MyWebshop.DraftAdministrativeData/CreationDateTime">
+                        <Annotation Term="Common.Label" String="{i18n>Draft_CreationDateTime}"/>
+                        </Annotations>
+                        <Annotations Target="sap.fe.fpm.video.MyWebshop.DraftAdministrativeData/CreatedByUser">
+                            <Annotation Term="Common.Label" String="{i18n>Draft_CreatedByUser}"/>
+                            </Annotations>
+                            <Annotations Target="sap.fe.fpm.video.MyWebshop.DraftAdministrativeData/DraftIsCreatedByMe">
+                                <Annotation Term="UI.Hidden" Bool="true"/>
+                                <Annotation Term="Common.Label" String="{i18n>Draft_DraftIsCreatedByMe}"/>
+                                </Annotations>
+                                <Annotations Target="sap.fe.fpm.video.MyWebshop.DraftAdministrativeData/LastChangeDateTime">
+                                    <Annotation Term="Common.Label" String="{i18n>Draft_LastChangeDateTime}"/>
+                                    </Annotations>
+                                    <Annotations Target="sap.fe.fpm.video.MyWebshop.DraftAdministrativeData/LastChangedByUser">
+                                        <Annotation Term="Common.Label" String="{i18n>Draft_LastChangedByUser}"/>
+                                        </Annotations>
+                                        <Annotations Target="sap.fe.fpm.video.MyWebshop.DraftAdministrativeData/InProcessByUser">
+                                            <Annotation Term="Common.Label" String="{i18n>Draft_InProcessByUser}"/>
+                                            </Annotations>
+                                            <Annotations Target="sap.fe.fpm.video.MyWebshop.DraftAdministrativeData/DraftIsProcessedByMe">
+                                                <Annotation Term="UI.Hidden" Bool="true"/>
+                                                <Annotation Term="Common.Label" String="{i18n>Draft_DraftIsProcessedByMe}"/>
+                                                </Annotations>
+                                            </Schema>
+                                        </edmx:DataServices>
+                                    </edmx:Edmx>

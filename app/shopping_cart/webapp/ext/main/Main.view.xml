@@ -1,0 +1,31 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:macros="sap.fe.macros" xmlns:f="sap.f" xmlns:cards="sap.f.cards"
+          xmlns:html="http://www.w3.org/1999/xhtml" controllerName="webshop.ext.main.Main">
+    <f:DynamicPage id="Main">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="My Webshop"/>
+                </f:heading>
+                <f:expandedContent>
+                    <macros:FilterBar metaPath="" search=".onSearch"
+                                      filterChanged=".onFiltersChanged"/>
+                </f:expandedContent>
+                <f:actions>
+                    <Button icon="sap-icon://action" tooltip="Share" text="Go to checkout (4)" press='.onGoToCheckout' />
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            <FlexBox items="{/Products}" id="productContainer" fitContainer="true" wrap="Wrap">
+                <f:Card class="sapUiSmallMargin" width="240px" >
+                    <f:header>
+                        <cards:Header title="{Name}" subtitle="{SupplierName}" press=".onSelectProduct" />
+                    </f:header>
+                    <f:content>
+                        <Image src="{PictureUrl}" height="15rem"/>
+                    </f:content>
+                </f:Card>
+            </FlexBox>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>
