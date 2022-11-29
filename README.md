@@ -12,14 +12,14 @@ The [Reuse Tool](https://reuse.software/) must be used for your samples project.
 3. The README.md file (this file):
 Please edit this file as it is the primary description file for your project. You can find some placeholder titles for sections below.
 
-# [Title]
+# [Repository with solutions for e-Learning UX405 “Develop an SAP Fiori Elements App Based on a CAP OData V4 Service: Advanced E-learning”. ]
 <!-- Please include descriptive title -->
 
 <!--- Register repository https://api.reuse.software/register, then add REUSE badge:
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/REPO-NAME)](https://api.reuse.software/info/github.com/SAP-samples/REPO-NAME)
 -->
 
-## Description
+## Each branch contains a solution for one of the exercises. The branch to start with is initial-state-app. 
 <!-- Please include SEO-friendly description -->
 
 ## Requirements
