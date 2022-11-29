@@ -29,6 +29,15 @@ Each branch contains a solution for one of the exercises and is based on the pre
 ### Exercise 1: Enable the Flexible Column Layout (by using the Application Modeler from the SAP Fiori tools)
 Based on branch [initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state)
 Solution branch: [solution/enable-flexible-column-layout](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/flexible-column-layout)
+### Exercise 2: Change the standard UI texts
+Based on branch initial-app-state
+Solution branch: solution/change-standard-ui-texts
+### Exercise 3: Enable semantic dates for filter fields of type Date 
+Based on solution/change-standard-ui-texts
+Solution branch: solution/add-semantic-fields-to-filterbar
+### Exercise 4: Hide a filter bar on the List Report
+Based on solution/add-semantic-fields-to-filterbar
+Solution branch: solution/hide-filter-bar
 
 
 ## Download and Installation
