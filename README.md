@@ -25,7 +25,11 @@ Each branch contains a solution for one of the exercises and is based on the pre
 <!-- Please include SEO-friendly description -->
 
 ## Sequence of features(exercises)
-[initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state) to start the first exercise.
+### [initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state) to start the first exercise.
+### Exercise 1: Enable the Flexible Column Layout (by using the Application Modeler from the SAP Fiori tools)
+Based on branch [initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state)
+Solution branch: [solution/enable-flexible-column-layout](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/flexible-column-layout)
+
 
 ## Download and Installation
 
