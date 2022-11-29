@@ -1,9 +1,7 @@
 
 # Repository with solutions for e-Learning UX405 “Develop an SAP Fiori Elements App Based on a CAP OData V4 Service: Advanced E-learning”
 
-<!--- Register repository https://api.reuse.software/register, then add REUSE badge:
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/fiori-elements-v4-cap-advanced)](https://api.reuse.software/info/github.com/SAP-samples/fiori-elements-v4-cap-advanced)
--->
 
 ## Description
 The app is based on https://github.com/SAP-samples/cap-sflight CAP Model with some small adjustments. 
