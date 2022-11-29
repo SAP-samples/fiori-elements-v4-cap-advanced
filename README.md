@@ -24,8 +24,8 @@ The app is based on https://github.com/SAP-samples/cap-sflight CAP Model with so
 Each branch contains a solution for one of the exercises and is based on the previous exercise. The branch to start with is initial-state-app. 
 <!-- Please include SEO-friendly description -->
 
-## Sequence of features(exrcises)
-initial-app-state(https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state) to start the first exercise.
+## Sequence of features(exercises)
+[initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state) to start the first exercise.
 
 ## Download and Installation
 
