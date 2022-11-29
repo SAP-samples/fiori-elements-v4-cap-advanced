@@ -1,15 +1,15 @@
 
-# Repository with solutions for e-Learning UX405 “Develop an SAP Fiori Elements App Based on a CAP OData V4 Service: Advanced E-learning”
-
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/fiori-elements-v4-cap-advanced)](https://api.reuse.software/info/github.com/SAP-samples/fiori-elements-v4-cap-advanced)
 
+# Solutions for e-Learning UX405 “Develop an SAP Fiori Elements App Based on a CAP OData V4 Service: Advanced E-learning”
+
 ## Description
-The app is based on https://github.com/SAP-samples/cap-sflight CAP Model with some small adjustments. 
-Each branch contains a solution for one of the exercises and is based on the previous exercise. The branch to start with is initial-state-app. 
 <!-- Please include SEO-friendly description -->
+The app is based on [https://github.com/SAP-samples/cap-sflight](CAP-SFLIGHT) Model with some small adjustments. 
+Each branch contains a solution for one of the exercises and is based on the previous exercise. The branch to start with is [initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state). 
 
 ## Sequence of features(exercises)
-### [initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state) to start the first exercise.
+
 ### Exercise 1: Enable the Flexible Column Layout (by using the Application Modeler from the SAP Fiori tools)
 Based on branch [initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state)
 Solution branch: [solution/enable-flexible-column-layout](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/flexible-column-layout)
@@ -70,7 +70,6 @@ Solution branch: [solution/add-validation-for-field-agency-on-op](https://github
 Based on [solution/add-validation-for-field-agency-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-validation-for-field-agency-on-op)
 solution branch: [solution/add-custom-column-to-table-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-column-to-table-on-op)
 
-
 ## Known Issues
 No known issues.
 <!-- You may simply state "No known issues. -->
@@ -79,7 +78,6 @@ No known issues.
 [Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.
  
 For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
-
 
 ## License
 Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
