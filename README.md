@@ -12,17 +12,20 @@ The [Reuse Tool](https://reuse.software/) must be used for your samples project.
 3. The README.md file (this file):
 Please edit this file as it is the primary description file for your project. You can find some placeholder titles for sections below.
 
-# [Repository with solutions for e-Learning UX405 “Develop an SAP Fiori Elements App Based on a CAP OData V4 Service: Advanced E-learning”. ]
-<!-- Please include descriptive title -->
+# Title
+Repository with solutions for e-Learning UX405 “Develop an SAP Fiori Elements App Based on a CAP OData V4 Service: Advanced E-learning”.
 
 <!--- Register repository https://api.reuse.software/register, then add REUSE badge:
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/REPO-NAME)](https://api.reuse.software/info/github.com/SAP-samples/REPO-NAME)
 -->
 
-## Each branch contains a solution for one of the exercises. The branch to start with is initial-state-app. 
+## Description
+The app is based on https://github.com/SAP-samples/cap-sflight CAP Model with some small adjustments. 
+Each branch contains a solution for one of the exercises and is based on the previous exercise. The branch to start with is initial-state-app. 
 <!-- Please include SEO-friendly description -->
 
-## Requirements
+## Sequence of features(exrcises)
+initial-app-state(https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state) to start the first exercise.
 
 ## Download and Installation
 
