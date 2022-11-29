@@ -37,7 +37,7 @@ Based on [solution/change-standard-ui-texts]
 Solution branch: [solution/add-semantic-fields-to-filterbar]
 ### Exercise 4: Hide a filter bar on the List Report
 Based on [solution/add-semantic-fields-to-filterbar]
-Solution branch: [solution/hide-filter-bar]
+Solution branch: [solution/hide-filter-bar](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/hide-filter-bar)
 ### Exercise 5: Make delete action unavailable for accepted and canceled travels
 Based on branch: [solution/add-semantic-fields-to-filterbar]
 Solution branch: [solution/make-delete-action-unavailable-for-accepted-travels]
