@@ -484,6 +484,7 @@ annotate TravelService.Travel with {
     Description @UI.MultiLineText : true
     @UI.Placeholder : '{i18n>DescrPlcehlder}'
 };
+
 annotate TravelService.Travel with @(
     UI.FieldGroup #TravelAdministrativeData : {
         $Type : 'UI.FieldGroupType',
@@ -505,5 +506,16 @@ annotate TravelService.Travel with @(
                 $Type : 'UI.DataField',
                 Value : createdBy,
             },],
+    }
+);
+
+annotate TravelService.Travel @(
+    Common.SideEffects#ReactonItemCreationOrDeletion : {
+        SourceEntities : [
+            to_Booking
+        ],
+       TargetProperties : [
+           'TotalPrice'
+       ]
     }
 );
