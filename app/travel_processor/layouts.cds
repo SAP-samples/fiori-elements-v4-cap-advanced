@@ -1,7 +1,6 @@
 using TravelService from '../../srv/travel-service';
 using from '../../db/schema';
 using from '../../db/master-data';
-using from './field-control';
 
 //
 // annotatios that control the fiori layout
@@ -92,7 +91,6 @@ annotate TravelService.Travel with @UI : {
             $Type  : 'UI.DataFieldForAnnotation',
             Target : '@UI.DataPoint#Progress1',
             Label  : '{i18n>ProgressOfTravel}',
-            ![@UI.Hidden]: TravelStatus.createDeleteHidden
         },
         {
             $Type : 'UI.DataFieldForAnnotation',
