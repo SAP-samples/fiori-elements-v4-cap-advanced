@@ -5,7 +5,7 @@
 
 ## Description
 <!-- Please include SEO-friendly description -->
-The app is based on [https://github.com/SAP-samples/cap-sflight](CAP-SFLIGHT) Model with some small adjustments. 
+The app is based on [CAP-SFLIGHT](https://github.com/SAP-samples/cap-sflight) Model with some small adjustments. 
 Each branch contains a solution for one of the exercises and is based on the previous exercise. The branch to start with is [initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state). 
 
 ## Sequence of features(exercises)
