@@ -102,11 +102,24 @@ annotate TravelService.Travel with @UI : {
       Label : '{i18n>Status}' // label only necessary if differs from title of element
     }
   ]},
+  FieldGroup#Customer : { Data : [
+    { Value : to_Customer_CustomerID },
+    { Value : Description            }
+  ]},
   FieldGroup #DateData : {Data : [
     { $Type : 'UI.DataField', Value : BeginDate },
     { $Type : 'UI.DataField', Value : EndDate }
   ]},
   FieldGroup #PriceData : {Data : [
+    { $Type : 'UI.DataField', Value : BookingFee },
+    { $Type : 'UI.DataField', Value : TotalPrice }
+  ]},
+    FieldGroup #Review : {Data : [
+    { Value : to_Agency_AgencyID     },
+    { Value : to_Customer_CustomerID },
+    { Value : Description            },
+      { $Type : 'UI.DataField', Value : BeginDate },
+    { $Type : 'UI.DataField', Value : EndDate },
     { $Type : 'UI.DataField', Value : BookingFee },
     { $Type : 'UI.DataField', Value : TotalPrice }
   ]}
