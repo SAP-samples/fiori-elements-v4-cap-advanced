@@ -405,16 +405,16 @@ annotate TravelService.Travel with @(UI.DataPoint #progress: {
 annotate TravelService.Booking with @(
     UI.DataPoint #TotalSupplPrice1: {
         Value                 : TotalSupplPrice,
-        MinimumValue          : 0,
-        MaximumValue          : 120,
-        TargetValue           : 100,
+        MinimumValue          : {$edmJson: {$Path: '/SupplementScope/MinimumValue'}},
+        MaximumValue          : {$edmJson: {$Path: '/SupplementScope/MaximumValue'}},
+        TargetValue           : {$edmJson: {$Path: '/SupplementScope/TargetValue'}},
         Visualization         : #BulletChart,
         //  Criticality : TotalSupplPrice, // it has precedence over criticalityCalculation => in order to have the criticality color do not use it
         CriticalityCalculation: {
             $Type                 : 'UI.CriticalityCalculationType',
             ImprovementDirection  : #Maximize,
-            DeviationRangeLowValue: 20,
-            ToleranceRangeLowValue: 75
+            DeviationRangeLowValue: {$edmJson: {$Path: '/SupplementScope/DeviationRangeLowValue'}},
+            ToleranceRangeLowValue: {$edmJson: {$Path: '/SupplementScope/ToleranceRangeLowValue'}}
         }
     },
     UI.Chart #TotalSupplPrice1    : {
