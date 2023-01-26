@@ -18,12 +18,28 @@ init() {
     const { CustomerID } = req.data
     const allCustomerBookings = await SELECT `BookingStatus_code as status`.from (Booking) .where `to_Customer_CustomerID = ${CustomerID}`
     const bookingData = {
-      HasNewBookings: false
+      TotalBookingsCount: 0,
+      NewBookingsCount: 0,
+      AcceptedBookingsCount: 0,
+      CancelledBookingsCount: 0
     }
-    bookingData.HasNewBookings = allCustomerBookings.some((booking) => {
-      return booking.status === 'N';
+    allCustomerBookings.forEach((booking) => {
+      bookingData.TotalBookingsCount++
+      switch (booking.status) {
+        case 'N':
+          bookingData.NewBookingsCount++
+          break
+        case 'B':
+          bookingData.AcceptedBookingsCount++
+          break          
+        case 'X':
+          bookingData.CancelledBookingsCount++
+          break
+        default:
+          break
+      }
     })
-    return bookingData
+    return bookingData;
   });
   
   /**
