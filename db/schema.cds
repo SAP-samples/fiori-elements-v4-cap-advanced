@@ -9,6 +9,10 @@ using {
 
 namespace sap.fe.cap.travel;
 
+type BookingData: {
+  HasNewBookings: Boolean
+}
+
 entity Travel : managed {
   key TravelUUID : UUID;
   TravelID       : Integer @readonly default 0;
