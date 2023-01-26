@@ -77,6 +77,7 @@ entity TravelStatus : CodeList {
   fieldControl: Integer @odata.Type:'Edm.Byte'; // 1: #ReadOnly, 7: #Mandatory
   createDeleteHidden: Boolean;
   insertDeleteRestriction: Boolean; // = NOT createDeleteHidden
+  cancelRestrictions: Boolean; // is true for cancelled travels
 }
 
 annotate Travel with @(
