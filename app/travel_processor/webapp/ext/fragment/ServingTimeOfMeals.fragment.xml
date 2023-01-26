@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+    <SegmentedButton core:require="{handler: 'sap/fe/cap/travel/ext/fragment/ServingTimeOfMeals'}" id="SB1" 
+        selectionChange="handler.onSelectionChange" 
+        enabled="{ui>/isEditable}"
+        selectedKey="{= ${DeliveryPreference_code}}">
+        <items>
+            <SegmentedButtonItem id="_IDGenSegmentedButtonItem1" text="{i18n>early}" key="S" />
+            <SegmentedButtonItem id="_IDGenSegmentedButtonItem2" text="{i18n>mid}" key="M" />
+            <SegmentedButtonItem id="_IDGenSegmentedButtonItem3" text="{i18n>late}" key="L" />
+        </items>
+    </SegmentedButton>
+</core:FragmentDefinition>
