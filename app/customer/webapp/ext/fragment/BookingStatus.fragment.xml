@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros" xmlns:mc="sap.suite.ui.microchart">
+    <VBox id="BookingStatusOverview" displayInline="true">
+        <mc:ComparisonMicroChart id="_IDGenComparisonMicroChart1" size="S" maxValue="{passengerBookingsModel>/totalBookingsCount}">
+            <mc:data>
+                <mc:ComparisonMicroChartData id="_IDGenComparisonMicroChartData1" title="{i18n>bookingStatusNew}" value="{passengerBookingsModel>/newBookingsCount}" color="sapUiChartPaletteSemanticCritical" />
+                <mc:ComparisonMicroChartData id="_IDGenComparisonMicroChartData2" title="{i18n>bookingStatusAccepted}" value="{passengerBookingsModel>/acceptedBookingsCount}" color="sapUiChartPaletteSemanticGood" />
+                <mc:ComparisonMicroChartData id="_IDGenComparisonMicroChartData3" title="{i18n>bookingStatusCancelled}" value="{passengerBookingsModel>/cancelledBookingsCount}" color="sapUiChartPaletteSemanticBad" />
+            </mc:data>
+        </mc:ComparisonMicroChart>      
+    </VBox>
+</core:FragmentDefinition>
