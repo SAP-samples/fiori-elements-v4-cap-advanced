@@ -159,6 +159,21 @@
                                         "route": "BookingObjectPage"
                                     }
                                 }
+                            },
+                            "content": {
+                                "body": {
+                                    "sections": {
+                                        "Bookings": {
+                                            "template": "sap.fe.cap.customer.ext.fragment.Bookings",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "GeneratedFacet1"
+                                            },
+                                            "title": "{i18n>ownBookings}",
+                                            "type": "XMLFragment"
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -174,6 +189,11 @@
                         }
                     }
                 }
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {}
             }
         }
     },
