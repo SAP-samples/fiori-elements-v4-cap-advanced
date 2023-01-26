@@ -88,3 +88,11 @@ Capabilities: {
 		AllowedExpressions: 'SingleRange'
 	}]}
 });
+
+//for dynamic Delete action
+annotate Travel with @(
+ Capabilities.DeleteRestrictions : {
+     $Type : 'Capabilities.DeleteRestrictionsType',
+    Deletable: TravelStatus.insertDeleteRestriction
+ }   
+);
