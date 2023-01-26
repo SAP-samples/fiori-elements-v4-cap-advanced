@@ -161,6 +161,19 @@
                                 }
                             },
                             "content": {
+                                "header": {
+                                    "facets": {
+                                        "CustomHeaderFacetContentBased1": {
+                                            "template": "sap.fe.cap.customer.ext.fragment.BookingStatus",
+                                            "title": "{i18n>bookingStatus}",
+                                            "visible": "true",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "ContactDetails"
+                                            }
+                                        }
+                                    }
+                                },
                                 "body": {
                                     "sections": {
                                         "Bookings": {
