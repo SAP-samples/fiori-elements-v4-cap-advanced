@@ -1,4 +1,5 @@
 using TravelService from '../../srv/travel-service';
+using from '../../db/schema';
 
 //
 // annotatios that control the fiori layout
@@ -154,7 +155,12 @@ annotate TravelService.Booking with @UI: {
         },
         {Value: FlightDate},
         {Value: FlightPrice},
-        {Value: BookingStatus_code}
+        {Value: BookingStatus_code},
+        {
+            $Type : 'UI.DataFieldForAnnotation',
+            Target: '@UI.Chart#TotalSupplPrice',
+            Label : '{i18n>Supplements}',
+        }
     ],
     Facets                        : [
         {
@@ -238,3 +244,31 @@ annotate TravelService.Travel with @(UI.DataPoint #Progress: {
     Visualization: #Progress,
     TargetValue  : 100,
 });
+
+annotate TravelService.Booking with @(
+    UI.DataPoint #TotalSupplPrice: {
+        Value                 : TotalSupplPrice,
+        MinimumValue          : 0,
+        MaximumValue          : 120,
+        TargetValue           : 100,
+        Visualization         : #BulletChart,
+        //  Criticality : TotalSupplPrice, // it has precedence over criticalityCalculation => in order to have the criticality color do not use it
+        CriticalityCalculation: {
+            $Type                 : 'UI.CriticalityCalculationType',
+            ImprovementDirection  : #Maximize,
+            DeviationRangeLowValue: 20,
+            ToleranceRangeLowValue: 75
+        }
+    },
+    UI.Chart #TotalSupplPrice    : {
+        ChartType        : #Bullet,
+        Title            : 'total supplements',
+        AxisScaling      : {$Type: 'UI.ChartAxisScalingType', },
+        Measures         : [TotalSupplPrice, ],
+        MeasureAttributes: [{
+            DataPoint: '@UI.DataPoint#TotalSupplPrice',
+            Role     : #Axis1,
+            Measure  : TotalSupplPrice,
+        }, ],
+    }
+);

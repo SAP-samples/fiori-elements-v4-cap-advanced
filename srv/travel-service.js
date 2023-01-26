@@ -76,12 +76,24 @@ init() {
    */
   this.after ('PATCH', 'BookingSupplement', async (_,req) => { if ('Price' in req.data) {
     // We need to fetch the Travel's UUID for the given Supplement target
+    const { booking } = await SELECT.one `to_Booking_BookingUUID as booking` 
+.from (BookingSupplement.drafts).where({BookSupplUUID:req.data.BookSupplUUID})
     const { travel } = await SELECT.one `to_Travel_TravelUUID as travel` .from (Booking.drafts)
-      .where `BookingUUID = ${ SELECT.one `to_Booking_BookingUUID` .from (BookingSupplement.drafts).where({BookSupplUUID:req.data.BookSupplUUID}) }`
+      .where `BookingUUID = ${booking} `
       // .where `BookingUUID = ${ SELECT.one `to_Booking_BookingUUID` .from (req._target) }`
       //> REVISIT: req._target not supported for subselects -> see tests
+      await this._update_totals_supplement (booking)
     return this._update_totals4 (travel)
   }})
+
+  /**
+   * Update the Booking's TotalSupplPrice
+   */
+this._update_totals_supplement = async function (booking) {
+    const { totals } = await SELECT.one `coalesce (sum (Price),0) as totals` .from (BookingSupplement.drafts) .where
+     `to_Booking_BookingUUID = ${booking}`
+    return  UPDATE (Booking.drafts, booking) .with({TotalSupplPrice: totals})
+}
 
   /**
    * Update the Travel's TotalPrice when a Booking Supplement is deleted.
