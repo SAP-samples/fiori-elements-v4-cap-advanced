@@ -103,12 +103,21 @@ annotate TravelService.Travel with @UI: {
             $Type : 'UI.CollectionFacet',
             Label : '{i18n>GeneralInformation}',
             ID    : 'Travel',
-            Facets: [{ // travel details
-                $Type : 'UI.ReferenceFacet',
-                ID    : 'TravelData',
-                Target: '@UI.FieldGroup#TravelData',
-                Label : '{i18n>GeneralInformation}'
-            }]
+            Facets: [
+                { // travel details
+                    $Type : 'UI.ReferenceFacet',
+                    ID    : 'TravelData',
+                    Target: '@UI.FieldGroup#TravelData',
+                    Label : '{i18n>GeneralInformation}'
+                },
+                {
+                    $Type               : 'UI.ReferenceFacet',
+                    Label               : '{i18n>TravelAdministrativeData}',
+                    ID                  : 'i18nTravelAdministrativeData',
+                    Target              : '@UI.FieldGroup#i18nTravelAdministrativeData',
+                    ![@UI.PartOfPreview]: false,
+                }
+            ]
         },
         { // booking list
             $Type : 'UI.ReferenceFacet',
@@ -445,4 +454,22 @@ annotate TravelService.Booking with @(
 annotate TravelService.Travel with {
     Description @UI.MultiLineText: true
                 @UI.Placeholder  : '{i18n>DescrPlcehlder}'
-}
+};
+
+annotate TravelService.Travel with @(UI.FieldGroup #i18nTravelAdministrativeData: {
+    $Type: 'UI.FieldGroupType',
+    Data : [
+        {
+            $Type: 'UI.DataField',
+            Value: createdAt,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: LastChangedAt,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: createdBy,
+        },
+    ],
+});
