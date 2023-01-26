@@ -96,6 +96,20 @@ annotate TravelService.Travel with @UI: {
             $Type : 'UI.DataFieldForAnnotation',
             Target: 'to_Agency/@Communication.Contact#contact',
             Label : 'Agency',
+        },
+         {
+            $Type              : 'UI.DataFieldForIntentBasedNavigation',
+            SemanticObject     : 'Customer',
+            Action             : 'display',
+            Label              : '{i18n>DisplayCustomers}',
+            RequiresContext    : false,
+            Mapping : [
+                {
+                    $Type : 'Common.SemanticObjectMappingType',
+                    LocalProperty : to_Customer_CustomerID,
+                    SemanticObjectProperty : 'CustomerID',
+                }
+            ]
         }
     ],
     Facets                : [
