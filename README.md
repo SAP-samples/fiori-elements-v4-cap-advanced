@@ -53,28 +53,31 @@ Solution branch: [solution/put-travel-status-total-price-deduct-discount-to-head
 ### Exercise 15:  Add the bullet micro chart and the progress indicator to the header area of the Object Page
 Based on branch: [solution/put-travel-status-total-price-deduct-discount-to-header-area-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/put-travel-status-total-price-deduct-discount-to-header-area-op)
 Solution branch: [solution/add-bullet-micro-chart-and-progress-indicator-to-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-bullet-micro-chart-and-progress-indicator-to-op)
-### Exercise 16: Add date, multiline text and a placeholder value
+### Exercise 16:  Use singleton for constant values of bullet micro chart in the object page header
+Based on branch: [solution/add-bullet-micro-chart-and-progress-indicator-to-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-bullet-micro-chart-and-progress-indicator-to-op)
+Solution branch: [solution/use-singleton-for-bullet-micro-chart-on-op](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-singleton-for-bullet-micro-chart-on-op)
+### Exercise 17: Add date, multiline text and a placeholder value
 Based on [solution/add-bullet-micro-chart-and-progress-indicator-to-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-bullet-micro-chart-and-progress-indicator-to-op)
 Solution branch: [solution/add-date-multiline-text-placeholder](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-date-multiline-text-placeholder)
-### Exercise 17: Add Value Help for Dependent Filtering 
+### Exercise 18: Add Value Help for Dependent Filtering 
 Based on [solution/add-date-multiline-text-placeholder](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-date-multiline-text-placeholder)
 Solution branch:  [solution/add-value-help-for-dependent-filtering](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-value-help-for-dependent-filtering)
-### Exercise 18: Hide some additional information on the OP by adding the “Show More” button
+### Exercise 19: Hide some additional information on the OP by adding the “Show More” button
 Based on [solution/add-value-help-for-dependent-filtering](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-value-help-for-dependent-filtering)
 Solution branch: [solution/add-show-more-button-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-show-more-button-on-op)
-### Exercise 19: Use Side Effects to update the total price immediately after adding another booking
+### Exercise 20: Use Side Effects to update the total price immediately after adding another booking
 Based on [solution/add-show-more-button-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-show-more-button-on-op)
 Solution branch:  [solution/use-side-effects-to-update-total-price](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-side-effects-to-update-total-price)
-### Exercise 20: Hide Starting Date and End Date for the canceled Travels in the Object Page Section
+### Exercise 21: Hide Starting Date and End Date for the canceled Travels in the Object Page Section
 Based on [solution/use-side-effects-to-update-total-price](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-side-effects-to-update-total-price)
 Solution branch: [solution/hide-starting-and-end-dates-for-canceled-travels](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/hide-starting-and-end-dates-for-canceled-travels)
-### Exercise 21: Add validation for the field Agency on the Object Page
+### Exercise 22: Add validation for the field Agency on the Object Page
 Based on [solution/hide-starting-and-end-dates-for-canceled-travels](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/hide-starting-and-end-dates-for-canceled-travels)
 Solution branch: [solution/add-validation-for-field-agency-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-validation-for-field-agency-on-op)
-### Exercise 22: Add a Custom Column to the table on the Object Page 
+### Exercise 23: Add a Custom Column to the table on the Object Page 
 Based on [solution/add-validation-for-field-agency-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-validation-for-field-agency-on-op)
 solution branch: [solution/add-custom-column-to-table-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-column-to-table-on-op)
-### Exercise 23: Add a Table Building Block to the Customer app
+### Exercise 24: Add a Table Building Block to the Customer app
 Based on [solution/add-custom-column-to-table-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-column-to-table-on-op)
 solution branch: [solution/add-table-building-block](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-table-building-block)
 ## Known Issues
