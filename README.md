@@ -74,7 +74,9 @@ Solution branch: [solution/add-validation-for-field-agency-on-op](https://github
 ### Exercise 22: Add a Custom Column to the table on the Object Page 
 Based on [solution/add-validation-for-field-agency-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-validation-for-field-agency-on-op)
 solution branch: [solution/add-custom-column-to-table-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-column-to-table-on-op)
-
+### Exercise 23: Add a Table Building Block to the Customer app
+Based on [solution/add-custom-column-to-table-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-column-to-table-on-op)
+solution branch: [solution/add-table-building-block](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-table-building-block)
 ## Known Issues
 No known issues.
 <!-- You may simply state "No known issues. -->
