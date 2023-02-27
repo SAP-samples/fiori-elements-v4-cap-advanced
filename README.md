@@ -55,9 +55,9 @@ Based on branch: [solution/put-travel-status-total-price-deduct-discount-to-head
 Solution branch: [solution/add-bullet-micro-chart-and-progress-indicator-to-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-bullet-micro-chart-and-progress-indicator-to-op)
 ### Exercise 16:  Use singleton for constant values of bullet micro chart in the object page header
 Based on branch: [solution/add-bullet-micro-chart-and-progress-indicator-to-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-bullet-micro-chart-and-progress-indicator-to-op)
-Solution branch: [solution/use-singleton-for-bullet-micro-chart-on-op](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-singleton-for-bullet-micro-chart-on-op)
+Solution branch: [solution/use-singleton-for-bullet-micro-chart-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-singleton-for-bullet-micro-chart-on-op)
 ### Exercise 17: Add date, multiline text and a placeholder value
-Based on [solution/use-singleton-for-bullet-micro-chart-on-op](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-singleton-for-bullet-micro-chart-on-op)
+Based on [solution/use-singleton-for-bullet-micro-chart-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-singleton-for-bullet-micro-chart-on-op)
 Solution branch: [solution/add-date-multiline-text-placeholder](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-date-multiline-text-placeholder)
 ### Exercise 18: Add Value Help for Dependent Filtering 
 Based on [solution/add-date-multiline-text-placeholder](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-date-multiline-text-placeholder)
