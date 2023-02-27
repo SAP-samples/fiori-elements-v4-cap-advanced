@@ -17,7 +17,7 @@ Based on branch [solution/generate-and-adjust-list-report-customer-app](https://
 Solution branch: [configure-object-page-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/configure-object-page-customer-app)
 ### Exercise 3: Enable the Flexible Column Layout (by using the Application Modeler from the SAP Fiori tools)
 Based on branch  [configure-object-page-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/configure-object-page-customer-app)
-Solution branch: [solution/enable-flexible-column-layout](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/flexible-column-layout)
+Solution branch: [solution/flexible-column-layout](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/flexible-column-layout)
 ### Exercise 4: Change the standard UI texts
 Based on branch  [configure-object-page-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/configure-object-page-customer-app)
 Solution branch: [solution/change-standard-ui-texts](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/change-standard-ui-texts)
@@ -57,7 +57,7 @@ Solution branch: [solution/add-bullet-micro-chart-and-progress-indicator-to-op](
 Based on branch: [solution/add-bullet-micro-chart-and-progress-indicator-to-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-bullet-micro-chart-and-progress-indicator-to-op)
 Solution branch: [solution/use-singleton-for-bullet-micro-chart-on-op](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-singleton-for-bullet-micro-chart-on-op)
 ### Exercise 17: Add date, multiline text and a placeholder value
-Based on [solution/add-bullet-micro-chart-and-progress-indicator-to-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-bullet-micro-chart-and-progress-indicator-to-op)
+Based on [solution/use-singleton-for-bullet-micro-chart-on-op](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-singleton-for-bullet-micro-chart-on-op)
 Solution branch: [solution/add-date-multiline-text-placeholder](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-date-multiline-text-placeholder)
 ### Exercise 18: Add Value Help for Dependent Filtering 
 Based on [solution/add-date-multiline-text-placeholder](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-date-multiline-text-placeholder)
