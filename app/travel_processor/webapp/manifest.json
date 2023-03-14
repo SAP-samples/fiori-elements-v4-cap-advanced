@@ -40,10 +40,10 @@
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "travel",
-                    "action": "process",
-                    "title": "Process Travels",
-                    "subTitle": "Process travels",
+                    "semanticObject": "Travel",
+                    "action": "manage",
+                    "title": "Travels",
+                    "subTitle": "Manage Travels",
                     "icon": "sap-icon://flight"
                 }
             }
