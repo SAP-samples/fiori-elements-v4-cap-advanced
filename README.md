@@ -80,6 +80,11 @@ solution branch: [solution/add-custom-column-to-table-on-op](https://github.com/
 ### Exercise 24: Add a Table Building Block to the Customer app
 Based on [solution/add-custom-column-to-table-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-column-to-table-on-op)
 solution branch: [solution/add-table-building-block](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-table-building-block)
+### Exercise 25: Add message strips to the object page of the customer app
+Based on [solution/add-table-building-block](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-table-building-block)
+solution branch: [solution/add-message-strips](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-message-strips)
+
+
 ## Known Issues
 No known issues.
 <!-- You may simply state "No known issues. -->
