@@ -83,6 +83,9 @@ solution branch: [solution/add-table-building-block](https://https://github.com/
 ### Exercise 25: Add message strips to the object page of the customer app
 Based on [solution/add-table-building-block](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-table-building-block)
 solution branch: [solution/add-message-strips](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-message-strips)
+### Exercise 26: Add custom micro chart to the object page header of the customer app
+Based on [solution/add-message-strips](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-message-strips)
+solution branch: [solution/add-custom-micro-chart-to-object-page-header](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-micro-chart-to-object-page-header)
 
 
 ## Known Issues
