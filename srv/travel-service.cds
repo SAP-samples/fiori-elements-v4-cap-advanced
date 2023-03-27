@@ -23,7 +23,7 @@ service TravelService @(path:'/processor') {
   entity Passenger as projection on my.Passenger {
     *,
     FirstName || ' ' || LastName as FullName: String,
-    to_Booking: Composition of many my.Booking on to_Booking.to_Customer = $self
+    to_Booking: Association to many my.Booking on to_Booking.to_Customer = $self
   }
 
   // Booking, Travel, Passenger: Use "FullName" as text annotation of CustomerID
