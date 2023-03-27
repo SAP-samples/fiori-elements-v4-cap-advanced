@@ -28,6 +28,11 @@ service TravelService @(path:'/processor') {
     to_Customer.CountryCode.name as PassengerCountryName,
     @Common.Text: PassengerCountryName
     to_Customer.CountryCode.code                         as PassengerCountry,
+
+    // **TravelStatus**
+    TravelStatus.name as TravelStatusName,
+    @Common.Text: TravelStatusName
+    TravelStatus
   } actions {
     action createTravelByTemplate() returns Travel;
     action rejectTravel();
@@ -42,7 +47,6 @@ service TravelService @(path:'/processor') {
   }
 
   // Booking, Travel, Passenger: Use "FullName" as text annotation of CustomerID
-  entity Booking as projection on my.Booking
   annotate Booking {
     to_Customer @Common.Text: to_Customer.FullName
   }  
