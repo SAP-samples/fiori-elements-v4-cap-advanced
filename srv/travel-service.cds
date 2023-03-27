@@ -12,14 +12,29 @@ service TravelService @(path:'/processor') {
   // Travel: To avoid number formatting of the travel ID, make it a String
   entity Travel as projection on my.Travel {
     *,
-    TravelID: String @readonly @Common.Text: Description
+    TravelID: String @readonly @Common.Text: Description,
+
+    // ***CustomerID***
+    to_Customer.FirstName || ' ' || to_Customer.LastName as CustomerFullName : String,
+    @Common.Text: CustomerFullName
+    to_Customer,
+
+    // ***AgencyID***
+    to_Agency.Name                                       as AgencyName,
+    @Common.Text: AgencyName
+    to_Agency,
+
+    // ***Passenger Country***
+    to_Customer.CountryCode.name as PassengerCountryName,
+    @Common.Text: PassengerCountryName
+    to_Customer.CountryCode.code                         as PassengerCountry,
   } actions {
     action createTravelByTemplate() returns Travel;
     action rejectTravel();
     action acceptTravel();
   };
 
-  // Passenger: Add joined property 'FullName' and composition 'to_Booking'
+  // Passenger: Add joined property 'FullName' and association 'to_Booking'
   entity Passenger as projection on my.Passenger {
     *,
     FirstName || ' ' || LastName as FullName: String,
@@ -31,9 +46,6 @@ service TravelService @(path:'/processor') {
   annotate Booking {
     to_Customer @Common.Text: to_Customer.FullName
   }  
-  annotate Travel {
-    to_Customer @Common.Text: to_Customer.FullName
-  }
   annotate Passenger {
     CustomerID @Common.Text: FullName;
   }
