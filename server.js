@@ -108,7 +108,7 @@ cds.once('bootstrap', (app) => {
 cds.once('served', () => {
 
     // Sandbox configuration
-    sandbox.get('/appconfig1/fioriSandboxConfig.json', (req, res) => {
+    sandbox.get('/appconfig/fioriSandboxConfig.json', (req, res) => {
         const demoConfig = {
             "defaultRenderer": "fiori2",
             "renderers": {
