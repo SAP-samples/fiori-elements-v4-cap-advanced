@@ -35,7 +35,7 @@
         },
         "crossNavigation": {
             "inbounds": {
-                "travel-inbound": {
+                "Travel-manage": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
