@@ -102,7 +102,6 @@ annotate TravelService.Travel with @UI: {
             SemanticObject     : 'Customer',
             Action             : 'display',
             Label              : '{i18n>DisplayCustomers}',
-            NavigationAvailable: true,
             RequiresContext    : false,
             Mapping : [
                 {
