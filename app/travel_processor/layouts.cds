@@ -106,7 +106,7 @@ annotate TravelService.Travel with @UI: {
             Mapping : [
                 {
                     $Type : 'Common.SemanticObjectMappingType',
-                    LocalProperty : 'to_Customer_CustomerID',
+                    LocalProperty : to_Customer_CustomerID,
                     SemanticObjectProperty : 'CustomerID',
                 }
             ]
