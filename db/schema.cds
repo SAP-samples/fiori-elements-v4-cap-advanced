@@ -9,6 +9,13 @@ using {
 
 namespace sap.fe.cap.travel;
 
+type BookingData: {
+  TotalBookingsCount: Integer;
+  NewBookingsCount: Integer;
+  AcceptedBookingsCount: Integer;
+  CancelledBookingsCount: Integer;
+}
+
 entity Travel : managed {
   key TravelUUID : UUID;
   TravelID       : Integer @readonly default 0;
@@ -83,7 +90,10 @@ entity TravelStatus : CodeList {
 
 annotate Travel with @(
 Capabilities: {
-	FilterRestrictions : {FilterExpressionRestrictions : [
+	FilterRestrictions : {FilterExpressionRestrictions : [{
+		Property	: 'BeginDate',
+		AllowedExpressions: 'SingleRange'
+	},
 	{
 		Property	: 'EndDate',
 		AllowedExpressions: 'SingleRange'
@@ -97,6 +107,7 @@ annotate TravelService.Travel with @(
     Deletable: TravelStatus.insertDeleteRestriction
  }   
 );
+
 @odata.singleton
 entity SupplementScope {
   MinimumValue           : Integer @Common.Label: 'Minimum Value';
@@ -104,12 +115,12 @@ entity SupplementScope {
   TargetValue            : Integer @Common.Label: 'Target Value';
   DeviationRangeLowValue : Integer @Common.Label: 'Deviation Range Threshold';
   ToleranceRangeLowValue : Integer @Common.Label: 'Tolerance Range Threshold';  
-}
+};
 
-entity MealOptionDeliveryPreference : CodeList {
-  key code: String enum {
+entity MealOptionDeliveryPreference: CodeList {
+  key code : String enum {
     SoonAfterTakeoff = 'S';
     Midflight = 'M';
     Late = 'L';
-  } default 'M';
-}
+  } default 'M'
+};

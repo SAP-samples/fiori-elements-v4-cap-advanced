@@ -34,7 +34,22 @@
                     "localUri": "annotations/annotation.xml"
                 }
             }
-        }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "Customer-display": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "Customer",
+                    "action": "display",
+                    "title": "Customers",
+                    "subTitle": "Display Customers",
+                    "icon": "sap-icon://flight"
+                }
+            }
+        }   
     },
     "sap.ui": {
         "technology": "UI5",
@@ -146,6 +161,19 @@
                                 }
                             },
                             "content": {
+                                "header": {
+                                    "facets": {
+                                        "CustomHeaderFacetContentBased1": {
+                                            "template": "sap.fe.cap.customer.ext.fragment.BookingStatus",
+                                            "title": "{i18n>bookingStatus}",
+                                            "visible": "true",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "ContactDetails"
+                                            }
+                                        }
+                                    }
+                                },
                                 "body": {
                                     "sections": {
                                         "Bookings": {
@@ -178,7 +206,11 @@
         },
         "extends": {
             "extensions": {
-                "sap.ui.controllerExtensions": {}
+                "sap.ui.controllerExtensions": {
+                    "sap.fe.templates.ObjectPage.ObjectPageController#sap.fe.cap.customer::PassengerObjectPage": {
+                        "controllerName": "sap.fe.cap.customer.ext.controller.PassengerOPExtend"
+                    }
+                }
             }
         }
     },

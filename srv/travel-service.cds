@@ -11,10 +11,33 @@ service TravelService @(path:'/processor') {
 
 entity SupplementScope as projection on my.SupplementScope;
 
+ // Function import used in Controller Extension 'PassengerOPExtend.js' to calculate booking data
+  function getBookingDataOfPassenger(CustomerID: String) returns my.BookingData;
+  
   // Travel: To avoid number formatting of the travel ID, make it a String
   entity Travel as projection on my.Travel {
     *,
-    TravelID: String @readonly @Common.Text: Description
+    TravelID: String @readonly @Common.Text: Description,
+
+    // ***CustomerID***
+    to_Customer.FirstName || ' ' || to_Customer.LastName as CustomerFullName : String,
+    @Common.Text: CustomerFullName
+    to_Customer,
+
+    // ***AgencyID***
+    to_Agency.Name                                       as AgencyName,
+    @Common.Text: AgencyName
+    to_Agency,
+
+    // ***Passenger Country***
+    to_Customer.CountryCode.name as PassengerCountryName,
+    @Common.Text: PassengerCountryName
+    to_Customer.CountryCode.code                         as PassengerCountry,
+
+    // **TravelStatus**
+    TravelStatus.name as TravelStatusName,
+    @Common.Text: TravelStatusName
+    TravelStatus
   } actions {
     action createTravelByTemplate() returns Travel;
     action rejectTravel();
@@ -22,21 +45,17 @@ entity SupplementScope as projection on my.SupplementScope;
     action deductDiscount(@(UI.ParameterDefaultValue : 5)percent: Percentage not null @mandatory ) returns Travel;
   };
 
-  // Passenger: Add joined property 'FullName' and composition 'to_Booking'
+  // Passenger: Add joined property 'FullName' and association 'to_Booking'
   entity Passenger as projection on my.Passenger {
     *,
     FirstName || ' ' || LastName as FullName: String,
-    to_Booking: Composition of many my.Booking on to_Booking.to_Customer = $self
+    to_Booking: Association to many my.Booking on to_Booking.to_Customer = $self
   }
 
   // Booking, Travel, Passenger: Use "FullName" as text annotation of CustomerID
-  entity Booking as projection on my.Booking
   annotate Booking {
     to_Customer @Common.Text: to_Customer.FullName
   }  
-  annotate Travel {
-    to_Customer @Common.Text: to_Customer.FullName
-  }
   annotate Passenger {
     CustomerID @Common.Text: FullName;
   }

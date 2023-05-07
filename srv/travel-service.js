@@ -10,6 +10,39 @@ init() {
 
 
   /**
+   * Function import handler: getBookingDataOfPassenger
+   * @param CustomerID
+   * @returns BookingData
+   */
+  this.on('getBookingDataOfPassenger', async (req) => {
+    const { CustomerID } = req.data
+    const allCustomerBookings = await SELECT `BookingStatus_code as status`.from (Booking) .where `to_Customer_CustomerID = ${CustomerID}`
+    const bookingData = {
+      TotalBookingsCount: 0,
+      NewBookingsCount: 0,
+      AcceptedBookingsCount: 0,
+      CancelledBookingsCount: 0
+    }
+    allCustomerBookings.forEach((booking) => {
+      bookingData.TotalBookingsCount++
+      switch (booking.status) {
+        case 'N':
+          bookingData.NewBookingsCount++
+          break
+        case 'B':
+          bookingData.AcceptedBookingsCount++
+          break          
+        case 'X':
+          bookingData.CancelledBookingsCount++
+          break
+        default:
+          break
+      }
+    })
+    return bookingData;
+  });
+  
+  /**
    * Fill in primary keys for new Travels.
    * Note: In contrast to Bookings and BookingSupplements that has to happen
    * upon SAVE, as multiple users could create new Travels concurrently.

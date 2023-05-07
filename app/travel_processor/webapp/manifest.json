@@ -35,15 +35,15 @@
         },
         "crossNavigation": {
             "inbounds": {
-                "travel-inbound": {
+                "Travel-manage": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "travel",
-                    "action": "process",
-                    "title": "Process Travels",
-                    "subTitle": "Process travels",
+                    "semanticObject": "Travel",
+                    "action": "manage",
+                    "title": "Travels",
+                    "subTitle": "Manage Travels",
                     "icon": "sap-icon://flight"
                 }
             }
@@ -133,6 +133,23 @@
                             "controlConfiguration": {
                                 "@com.sap.vocabularies.UI.v1.SelectionFields": {
                                     "useSemanticDateRange": true
+                                },
+                                "@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "tableSettings": {
+                                        "quickVariantSelection": {
+                                            "paths": [
+                                                {
+                                                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#open"
+                                                },
+                                                {
+                                                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#accepted"
+                                                },
+                                                {
+                                                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#canceled"
+                                                }
+                                            ]
+                                        }
+                                    }
                                 }
                             },
                             "variantManagement": "Page",

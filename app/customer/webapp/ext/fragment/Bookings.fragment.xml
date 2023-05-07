@@ -3,7 +3,7 @@
         metaPath="to_Booking/@com.sap.vocabularies.UI.v1.PresentationVariant"
         header="Bookings"
         personalization="Column"
-        readOnly="{= ${ui>/editMode} !== 'Editable'}"
+        readOnly="{ui>/isEditable}"
         id="OwnBookingsTable"
         >
     </macros:Table>		
