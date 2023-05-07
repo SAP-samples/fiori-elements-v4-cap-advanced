@@ -48,10 +48,7 @@ annotate TravelService.Travel with @UI: {
     },
     SelectionFields       : [
         to_Agency_AgencyID,
-        to_Customer_CustomerID,
-        TravelStatus_code,
-        BeginDate,
-        EndDate
+        to_Customer_CustomerID
     ],
     LineItem              : [
         {

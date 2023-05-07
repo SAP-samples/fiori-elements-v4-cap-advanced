@@ -65,30 +65,3 @@ entity SupplementScope as projection on my.SupplementScope;
 }
 
 type Percentage : Integer @assert.range: [1,100];
-
-annotate TravelService.Travel with @Aggregation.ApplySupported: {
-  Transformations       : [
-    'aggregate',
-    'topcount',
-    'bottomcount',
-    'identity',
-    'concat',
-    'groupby',
-    'filter',
-    'expand',
-    'top',
-    'skip',
-    'orderby',
-    'search'
-  ],
-  Rollup                : #None,
-  PropertyRestrictions  : true,
-  GroupableProperties   : [
-    to_Customer_CustomerID,
-    to_Agency_AgencyID,
-    BeginDate
-  ],
-  AggregatableProperties: [
-    {Property: TravelID, }
-  ],
-};
