@@ -92,7 +92,12 @@ solution branch: [solution/add-toolbar-button-to-navigate-to-customer-app](https
 ### Exercise 28: Navigate to customer app from manage travels via link
 Based on [solution/add-toolbar-button-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-toolbar-button-to-navigate-to-customer-app)
 solution branch: [solution/add-link-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-link-to-navigate-to-customer-app)
-
+### Exercise 29: 
+Based on [solution/initial-app-state-for-analytics](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/initial-app-state-for-analytics)
+solution branch: [solution/add-chart-to-listreport](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-chart-to-listreport)
+### Exercise 30: Navigate to customer app from manage travels via link
+Based on [solution/add-chart-to-listreport](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-chart-to-listreport)
+solution branch: [solution/add-visual-filters](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-visual-filters)
 
 ## Known Issues
 No known issues.
