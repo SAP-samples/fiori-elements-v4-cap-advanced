@@ -86,6 +86,18 @@ solution branch: [solution/add-message-strips](https://github.com/SAP-samples/fi
 ### Exercise 26: Add custom micro chart to the object page header of the customer app
 Based on [solution/add-message-strips](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-message-strips)
 solution branch: [solution/add-custom-micro-chart-to-object-page-header](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-micro-chart-to-object-page-header)
+### Exercise 27: Navigate to customer app from manage travels app by pressing the tool bar button
+Based on [solution/add-custom-micro-chart-to-object-page-header](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-micro-chart-to-object-page-header)
+solution branch: [solution/add-toolbar-button-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-toolbar-button-to-navigate-to-customer-app)
+### Exercise 28: Navigate to customer app from manage travels via link
+Based on [solution/add-toolbar-button-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-toolbar-button-to-navigate-to-customer-app)
+solution branch: [solution/add-link-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-link-to-navigate-to-customer-app)
+### Exercise 29: Adding a chart to the list report of manage travels app
+Based on [solution/initial-app-state-for-analytics](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/initial-app-state-for-analytics)
+solution branch: [solution/add-chart-to-listreport](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-chart-to-listreport)
+### Exercise 30: Adding visual filters to the list report of manage travels app
+Based on [solution/add-chart-to-listreport](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-chart-to-listreport)
+solution branch: [solution/add-visual-filters](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-visual-filters)
 
 
 ## Known Issues
