@@ -45,7 +45,7 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension',"sap/ui/core/message/Messag
 					oPassengerBookingsModel.setProperty("/totalBookingsCount", oContext.getProperty("TotalBookingsCount"));
 					oPassengerBookingsModel.setProperty("/newBookingsCount", oContext.getProperty("NewBookingsCount"));
 					oPassengerBookingsModel.setProperty("/acceptedBookingsCount", oContext.getProperty("AcceptedBookingsCount"));
-					oPassengerBookingsModel.setProperty("/cancelleddBookingsCount", oContext.getProperty("CancelledBookingsCount"));
+					oPassengerBookingsModel.setProperty("/cancelledBookingsCount", oContext.getProperty("CancelledBookingsCount"));
 					if (this.message !== undefined) {
 						oBookingTableAPI.removeMessage(this.message);
 					}				
