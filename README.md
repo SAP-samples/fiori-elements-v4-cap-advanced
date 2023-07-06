@@ -10,22 +10,22 @@ Each branch contains a solution for one of the exercises and is based on the pre
 
 ## Sequence of features(exercises)
 ### Create the Display Customers App; Adjust the List Report of the Display Customers App
-Based on branch [initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state)
+Based on branch: [initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state)
 Solution branch: [solution/generate-and-adjust-list-report-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/generate-and-adjust-list-report-customer-app)
 ### Adjust the Object Page of the Display Customers App
-Based on branch [solution/generate-and-adjust-list-report-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/generate-and-adjust-list-report-customer-app)
+Based on branch: [solution/generate-and-adjust-list-report-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/generate-and-adjust-list-report-customer-app)
 Solution branch: [configure-object-page-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/configure-object-page-customer-app)
 ### Enable the Flexible Column Layout
-Based on branch  [configure-object-page-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/configure-object-page-customer-app)
+Based on branch:  [configure-object-page-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/configure-object-page-customer-app)
 Solution branch: [solution/flexible-column-layout](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/flexible-column-layout)
 ### Change the Standard UI texts
-Based on branch  [configure-object-page-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/configure-object-page-customer-app)
+Based on branch:  [configure-object-page-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/configure-object-page-customer-app)
 Solution branch: [solution/change-standard-ui-texts](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/change-standard-ui-texts)
 ### Add Fields to the List Report Filter Bar 
-Based on [solution/change-standard-ui-texts](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/change-standard-ui-texts)
+Based on branch: [solution/change-standard-ui-texts](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/change-standard-ui-texts)
 Solution branch: [solution/add-semantic-fields-to-filterbar](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-semantic-fields-to-filterbar)
 ### Hide the Filter Bar in the List Report
-Based on [solution/add-semantic-fields-to-filterbar](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-semantic-fields-to-filterbar)
+Based on branch: [solution/add-semantic-fields-to-filterbar](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-semantic-fields-to-filterbar)
 Solution branch: [solution/hide-filter-bar](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/hide-filter-bar)
 ### Make the Delete Action Unavailable for Accepted and Canceled Travels
 Based on branch: [solution/add-semantic-fields-to-filterbar](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-semantic-fields-to-filterbar)
@@ -37,10 +37,10 @@ Solution branch: [solution/create-action-with-a-mandatory-parameter](https://git
 Based on branch: [solution/create-action-with-a-mandatory-parameter](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/create-action-with-a-mandatory-parameter)
 Solution branch: [solution/add-progress-indicator-to-table-column](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-progress-indicator-to-table-column)
 ### Add a Bullet Micro Chart to the Table Column
-Based on branch [solution/add-progress-indicator-to-table-column](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-progress-indicator-to-table-column)
-Solution branch [solution/add-bullet-micro-chart-to-table](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-bullet-micro-chart-to-table)
+Based on branch: [solution/add-progress-indicator-to-table-column](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-progress-indicator-to-table-column)
+Solution branch: [solution/add-bullet-micro-chart-to-table](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-bullet-micro-chart-to-table)
 ### Add a Contact Quick View to the Table
-Based on [solution/add-bullet-micro-chart-to-table](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-bullet-micro-chart-to-table)
+Based on branch: [solution/add-bullet-micro-chart-to-table](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-bullet-micro-chart-to-table)
 Solution branch: [solution/add-quick-contact-view-to-table]()
 ### Create Multiple Table Views Using Single Table Mode
 Based on branch: [solution/add-quick-contact-view-to-table](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-quick-contact-view-to-table)
@@ -58,47 +58,47 @@ Solution branch: [solution/add-bullet-micro-chart-and-progress-indicator-to-op](
 Based on branch: [solution/add-bullet-micro-chart-and-progress-indicator-to-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-bullet-micro-chart-and-progress-indicator-to-op)
 Solution branch: [solution/use-singleton-for-bullet-micro-chart-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-singleton-for-bullet-micro-chart-on-op)
 ### Add Date Fields and a Multiline Input Field to the Object Page Subsection
-Based on [solution/use-singleton-for-bullet-micro-chart-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-singleton-for-bullet-micro-chart-on-op)
+Based on branch: [solution/use-singleton-for-bullet-micro-chart-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-singleton-for-bullet-micro-chart-on-op)
 Solution branch: [solution/add-date-multiline-text-placeholder](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-date-multiline-text-placeholder)
 ### Add Dependent Filtering to the Value Help of the Fields
-Based on [solution/add-date-multiline-text-placeholder](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-date-multiline-text-placeholder)
+Based on branch: [solution/add-date-multiline-text-placeholder](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-date-multiline-text-placeholder)
 Solution branch:  [solution/add-value-help-for-dependent-filtering](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-value-help-for-dependent-filtering)
 ### Display the Travel Administrative Data Subsection on Demand (by Adding the "Show More" Button)
-Based on [solution/add-value-help-for-dependent-filtering](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-value-help-for-dependent-filtering)
+Based on branch: [solution/add-value-help-for-dependent-filtering](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-value-help-for-dependent-filtering)
 Solution branch: [solution/add-show-more-button-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-show-more-button-on-op)
 ### Use Side Effects to Update the Total Price Immediately After Adding Another Booking
-Based on [solution/add-show-more-button-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-show-more-button-on-op)
+Based on branch: [solution/add-show-more-button-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-show-more-button-on-op)
 Solution branch:  [solution/use-side-effects-to-update-total-price](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-side-effects-to-update-total-price)
 ### Hide the Starting Date and End Date for Travels with the Canceled Travel Status
-Based on [solution/use-side-effects-to-update-total-price](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-side-effects-to-update-total-price)
+Based on branch: [solution/use-side-effects-to-update-total-price](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/use-side-effects-to-update-total-price)
 Solution branch: [solution/hide-starting-and-end-dates-for-canceled-travels](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/hide-starting-and-end-dates-for-canceled-travels)
 ### Add the Validation for the Field Agency on the Object Page
-Based on [solution/hide-starting-and-end-dates-for-canceled-travels](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/hide-starting-and-end-dates-for-canceled-travels)
+Based on branch: [solution/hide-starting-and-end-dates-for-canceled-travels](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/hide-starting-and-end-dates-for-canceled-travels)
 Solution branch: [solution/add-validation-for-field-agency-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-validation-for-field-agency-on-op)
 ### Add a Custom Column to the Table on the Object Page of the Manage Travels App 
-Based on [solution/add-validation-for-field-agency-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-validation-for-field-agency-on-op)
-solution branch: [solution/add-custom-column-to-table-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-column-to-table-on-op)
+Based on branch: [solution/add-validation-for-field-agency-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-validation-for-field-agency-on-op)
+Solution branch: [solution/add-custom-column-to-table-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-column-to-table-on-op)
 ### Create a Table Using the Table Building Block in the Display Customers App
-Based on [solution/add-custom-column-to-table-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-column-to-table-on-op)
-solution branch: [solution/add-table-building-block](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-table-building-block)
+Based on branch: [solution/add-custom-column-to-table-on-op](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-column-to-table-on-op)
+Solution branch: [solution/add-table-building-block](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-table-building-block)
 ### Add Message Strips to the Object Page of the Display Customers App
-Based on [solution/add-table-building-block](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-table-building-block)
-solution branch: [solution/add-message-strips](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-message-strips)
+Based on branch: [solution/add-table-building-block](https://https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-table-building-block)
+Solution branch: [solution/add-message-strips](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-message-strips)
 ### Add a Custom Micro Chart to the Object Page Header of the Display Customers App
-Based on [solution/add-message-strips](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-message-strips)
-solution branch: [solution/add-custom-micro-chart-to-object-page-header](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-micro-chart-to-object-page-header)
+Based on branch: [solution/add-message-strips](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-message-strips)
+Solution branch: [solution/add-custom-micro-chart-to-object-page-header](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-micro-chart-to-object-page-header)
 ### Navigate to the Display Customers App from the Manage Travels App by Pressing the Toolbar Button
-Based on [solution/add-custom-micro-chart-to-object-page-header](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-micro-chart-to-object-page-header)
-solution branch: [solution/add-toolbar-button-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-toolbar-button-to-navigate-to-customer-app)
+Based on branch: [solution/add-custom-micro-chart-to-object-page-header](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-micro-chart-to-object-page-header)
+Solution branch: [solution/add-toolbar-button-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-toolbar-button-to-navigate-to-customer-app)
 ### Navigate to the Display Customers App from the Manage Travels App via a Link
-Based on [solution/add-toolbar-button-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-toolbar-button-to-navigate-to-customer-app)
-solution branch: [solution/add-link-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-link-to-navigate-to-customer-app)
+Based on branch: [solution/add-toolbar-button-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-toolbar-button-to-navigate-to-customer-app)
+Solution branch: [solution/add-link-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-link-to-navigate-to-customer-app)
 ### Add a Chart to the List Report of the Manage Travels App
-Based on [solution/initial-app-state-for-analytics](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/initial-app-state-for-analytics)
-solution branch: [solution/add-chart-to-listreport](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-chart-to-listreport)
+Based on branch: [solution/initial-app-state-for-analytics](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/initial-app-state-for-analytics)
+Solution branch: [solution/add-chart-to-listreport](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-chart-to-listreport)
 ### Add Visual Filters to the List Report of the Manage Travels App
-Based on [solution/add-chart-to-listreport](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-chart-to-listreport)
-solution branch: [solution/add-visual-filters](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-visual-filters)
+Based on branch: [solution/add-chart-to-listreport](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-chart-to-listreport)
+Solution branch: [solution/add-visual-filters](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-visual-filters)
 
 
 ## Known Issues
