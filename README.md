@@ -8,7 +8,7 @@
 The app is based on [CAP-SFLIGHT](https://github.com/SAP-samples/cap-sflight) Model with some small adjustments. 
 Each branch contains a solution for one of the exercises and is based on the previous exercise. The branch to start with is [initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state). 
 
-## Sequence of features(exercises)
+## Sequence of Features (Exercises)
 ### Create the Display Customers App; Adjust the List Report of the Display Customers App
 Based on branch: [initial-app-state](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/initial-app-state)
 Solution branch: [solution/generate-and-adjust-list-report-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/generate-and-adjust-list-report-customer-app)
