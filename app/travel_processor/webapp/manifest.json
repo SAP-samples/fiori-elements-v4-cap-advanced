@@ -65,6 +65,15 @@
         }
     },
     "sap.ui5": {
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {
+                    "sap.fe.templates.ListReport.ListReportController": {
+                        "controllerName": "sap.fe.cap.travel.ext.controller.TravelList"
+                    }
+                }
+            }
+        },
         "flexEnabled": true,
         "resources": {
             "js": [],
@@ -74,7 +83,8 @@
             "minUI5Version": "1.96.0",
             "libs": {
                 "sap.ui.core": {},
-                "sap.fe.templates": {}
+                "sap.fe.templates": {},
+                "sap.f": {}
             }
         },
         "models": {
@@ -106,17 +116,34 @@
                 {
                     "pattern": ":?query:",
                     "name": "TravelList",
-                    "target": "TravelList"
+                    "target": [
+                        "TravelList"
+                    ]
+                },
+                {
+                    "pattern": "/TravelDetail({key}):?query:",
+                    "name": "TravelObjectPage",
+                    "target": [
+                        "TravelList",
+                        "TravelObjectPage"
+                    ]
                 },
                 {
                     "pattern": "Travel({key}):?query:",
-                    "name": "TravelObjectPage",
-                    "target": "TravelObjectPage"
+                    "name": "GuidedTravelCreate",
+                    "target": [
+                        "TravelList",
+                        "GuidedTravelCreate"
+                    ]
                 },
                 {
-                    "pattern": "Travel({key})/to_Booking({key2}):?query:",
-                    "name": "BookingObjectPage",
-                    "target": "BookingObjectPage"
+                    "name": "BookingInvoice",
+                    "pattern": "Travel({key})/to_Booking({to_BookingKey}):?query:",
+                    "target": [
+                        "TravelList",
+                        "TravelObjectPage",
+                        "BookingInvoice"
+                    ]
                 }
             ],
             "targets": {
@@ -130,6 +157,14 @@
                             "controlConfiguration": {
                                 "@com.sap.vocabularies.UI.v1.SelectionFields": {
                                     "useSemanticDateRange": true
+                                },
+                                "@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "tableSettings": {
+                                        "type": "GridTable",
+                                        "personalization": {
+                                            "sort": true
+                                        }
+                                    }
                                 }
                             },
                             "variantManagement": "Page",
@@ -142,7 +177,9 @@
                                 }
                             }
                         }
-                    }
+                    },
+                    "controlAggregation": "beginColumnPages",
+                    "contextPattern": ""
                 },
                 "TravelObjectPage": {
                     "type": "Component",
@@ -154,7 +191,7 @@
                             "navigation": {
                                 "to_Booking": {
                                     "detail": {
-                                        "route": "BookingObjectPage"
+                                        "route": "BookingInvoice"
                                     }
                                 }
                             },
@@ -173,26 +210,71 @@
                                     }
                                 }
                             },
-                            "editableHeaderContent": false
+                            "editableHeaderContent": false,
+                            "content": {
+                                "body": {
+                                    "sections": {
+                                        "FlightInformation": {
+                                            "template": "sap.fe.cap.travel.ext.fragment.FlightInformation",
+                                            "position": {
+                                                "placement": "After",
+                                                "anchor": "Travel"
+                                            },
+                                            "title": "Flight Information",
+                                            "type": "XMLFragment"
+                                        }
+                                    }
+                                }
+                            }
                         }
-                    }
+                    },
+                    "controlAggregation": "midColumnPages",
+                    "contextPattern": "/Travel({key})"
                 },
-                "BookingObjectPage": {
+                "BookingInvoice": {
                     "type": "Component",
-                    "id": "BookingObjectPage",
-                    "name": "sap.fe.templates.ObjectPage",
+                    "id": "BookingInvoice",
+                    "name": "sap.fe.core.fpm",
+                    "controlAggregation": "endColumnPages",
                     "options": {
                         "settings": {
-                            "entitySet": "Booking",
-                            "editableHeaderContent": false
+                            "viewName": "sap.fe.cap.travel.ext.view.Invoice",
+                            "entitySet": "Booking"
                         }
-                    }
+                    },
+                    "contextPattern": "/Travel({key})/to_Booking({to_BookingKey})"
+                },
+                "GuidedTravelCreate": {
+                    "type": "Component",
+                    "id": "GuidedTravelCreate",
+                    "name": "sap.fe.core.fpm",
+                    "controlAggregation": "midColumnPages",
+                    "options": {
+                        "settings": {
+                            "viewName": "sap.fe.cap.travel.ext.view.TravelCreate",
+                            "entitySet": "Travel"
+                        }
+                    },
+                    "contextPattern": "/Travel({key})"
                 }
+            },
+            "config": {
+                "flexibleColumnLayout": {
+                    "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+                    "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+                },
+                "routerClass": "sap.f.routing.Router"
             }
         },
         "contentDensities": {
             "compact": true,
             "cozy": true
+        },
+        "rootView": {
+            "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+            "type": "XML",
+            "async": true,
+            "id": "appRootView"
         }
     },
     "sap.platform.abap": {

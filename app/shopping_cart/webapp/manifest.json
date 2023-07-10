@@ -1,0 +1,185 @@
+{
+    "_version": "1.45.0",
+    "sap.app": {
+        "id": "webshop",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:fpm",
+            "version": "1.7.5",
+            "toolsId": "7c182e15-aecc-4c96-9e03-c326afb8d8a9"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/here/goes/your/serviceurl/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "annotation"
+                    ],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "4.0"
+                }
+            },
+            "annotation": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation.xml",
+                "settings": {
+                    "localUri": "annotations/annotation.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.107.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.fe.templates": {},
+                "sap.f": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "webshop.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "routes": [
+                {
+                    "name": "ProductsMain",
+                    "pattern": ":?query:",
+                    "target": [
+                        "ProductsMain"
+                    ]
+                },
+                {
+                    "pattern": "Products({key}):?query:",
+                    "name": "ProductsObjectPage_Products",
+                    "target": [
+                        "ProductsMain",
+                        "ProductsObjectPage_Products"
+                    ]
+                },
+                {
+                    "name": "CheckoutPage",
+                    "pattern": "Cart:?query:",
+                    "target": [
+                        "ProductsMain",
+                        "CheckoutPage"
+                    ]
+                }
+            ],
+            "targets": {
+                "ProductsMain": {
+                    "type": "Component",
+                    "id": "ProductsMain",
+                    "name": "sap.fe.core.fpm",
+                    "options": {
+                        "settings": {
+                            "viewName": "webshop.ext.main.Main",
+                            "entitySet": "Products",
+                            "navigation": {
+                                "Products": {
+                                    "detail": {
+                                        "route": "ProductsObjectPage_Products"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "controlAggregation": "beginColumnPages",
+                    "contextPattern": ""
+                },
+                "ProductsObjectPage_Products": {
+                    "type": "Component",
+                    "id": "ProductsObjectPage_Products",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "entitySet": "Products",
+                            "navigation": {}
+                        }
+                    },
+                    "controlAggregation": "midColumnPages",
+                    "contextPattern": "/Products({key})"
+                },
+                 "CheckoutPage": {
+                    "type": "Component",
+                    "id": "CheckoutPage",
+                    "name": "sap.fe.core.fpm",
+                    "controlAggregation": "midColumnPages",
+                    "options": {
+                        "settings": {
+                            "viewName": "webshop.ext.view.CheckoutPage",
+                            "entitySet": "Cart"
+                        }
+                    },
+                    "contextPattern": ""
+                }
+            },
+            "config": {
+                "flexibleColumnLayout": {
+                    "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+                    "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+                },
+                "routerClass": "sap.f.routing.Router"
+            }
+        },
+        "rootView": {
+            "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+            "type": "XML",
+            "async": true,
+            "id": "appRootView"
+        }
+    }
+}

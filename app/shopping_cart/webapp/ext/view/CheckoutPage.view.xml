@@ -1,0 +1,58 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:macros="sap.fe.macros" xmlns:f="sap.f" xmlns:cards="sap.f.cards"
+          xmlns:html="http://www.w3.org/1999/xhtml" controllerName="webshop.ext.view.CheckoutPage">
+    <f:DynamicPage id="Main" showFooter="true" binding="{/Cart}">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="Checkout"/>
+                </f:heading>
+                <f:expandedContent>
+
+                </f:expandedContent>
+                <f:actions>
+                <macros:FlexibleColumnLayoutActions/>
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            <FlexBox
+                    height="100px"
+                    alignItems="Start"
+                    justifyContent="Start">
+                <Panel class="sapUiSmallMarginEnd">
+                    <layoutData>
+                        <FlexItemData growFactor="1" styleClass="sapUiSmallMarginEnd" />
+                    </layoutData>
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <Title text="Cart Items"/>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <content>
+                        <macros:Table metaPath="/Cart/CartItems/@com.sap.vocabularies.UI.v1.LineItem" contextPath="/Products" />
+                    </content>
+                </Panel>
+                <Panel width="300px">
+                    <layoutData>
+                        <FlexItemData growFactor="2" />
+                    </layoutData>
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <Title text="Total"/>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <content>
+                        <macros:Form metaPath="/Cart/@com.sap.vocabularies.UI.v1.FieldGroup#HeaderGeneralInformation"></macros:Form>
+                    </content>
+                </Panel>
+            </FlexBox>
+        </f:content>
+        <f:footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                    <Button text="Checkout" press=".onCheckout" />
+
+            </OverflowToolbar>
+        </f:footer>
+    </f:DynamicPage>
+</mvc:View>
