@@ -42,7 +42,7 @@ service TravelService @(path:'/processor') {
   // Passenger: Add joined property 'FullName' and association 'to_Booking'
   entity Passenger as projection on my.Passenger {
     *,
-    FirstName || ' ' || LastName as FullName: String,
+    FirstName || ' ' || LastName as FullName: String @title : '{i18n>fullName}',
     to_Booking: Association to many my.Booking on to_Booking.to_Customer = $self
   }
 
