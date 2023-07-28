@@ -76,3 +76,15 @@ entity TravelStatus : CodeList {
   createDeleteHidden: Boolean;
   insertDeleteRestriction: Boolean; // = NOT createDeleteHidden
 }
+
+annotate Travel with @(
+Capabilities: {
+	FilterRestrictions : {FilterExpressionRestrictions : [{
+		Property	: 'BeginDate',
+		AllowedExpressions: 'SingleRange'
+	},
+	{
+		Property	: 'EndDate',
+		AllowedExpressions: 'SingleRange'
+	}]}
+});
