@@ -101,7 +101,7 @@ Capabilities: {
 });
 
 //for dynamic Delete action
-annotate TravelService.Travel with @(
+annotate Travel with @(
  Capabilities.DeleteRestrictions : {
      $Type : 'Capabilities.DeleteRestrictionsType',
     Deletable: TravelStatus.insertDeleteRestriction

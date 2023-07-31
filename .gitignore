@@ -8,6 +8,7 @@ gen/
 node_modules/
 target/
 .reloadtrigger
+package-lock.json
 
 # Web IDE, App Studio
 .che/

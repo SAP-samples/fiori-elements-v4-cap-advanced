@@ -49,7 +49,7 @@
                     "icon": "sap-icon://flight"
                 }
             }
-        }   
+        }
     },
     "sap.ui": {
         "technology": "UI5",
@@ -70,7 +70,7 @@
     "sap.ui5": {
         "flexEnabled": true,
         "dependencies": {
-            "minUI5Version": "1.109.3",
+            "minUI5Version": "1.108.20",
             "libs": {
                 "sap.m": {},
                 "sap.ui.core": {},

@@ -5,7 +5,6 @@ annotate service.Passenger with @(
         {
             $Type : 'UI.DataField',
             Value : FullName,
-            Label : 'FullName',
         },{
             $Type : 'UI.DataField',
             Value : CountryCode.code,

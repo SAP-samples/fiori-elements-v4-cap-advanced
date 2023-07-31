@@ -72,7 +72,7 @@
             "css": []
         },
         "dependencies": {
-            "minUI5Version": "1.102.1",
+            "minUI5Version": "1.108.20",
             "libs": {
                 "sap.ui.core": {},
                 "sap.fe.templates": {}
@@ -133,6 +133,23 @@
                             "controlConfiguration": {
                                 "@com.sap.vocabularies.UI.v1.SelectionFields": {
                                     "useSemanticDateRange": true
+                                },
+                                "@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "tableSettings": {
+                                        "quickVariantSelection": {
+                                            "paths": [
+                                                {
+                                                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#open"
+                                                },
+                                                {
+                                                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#accepted"
+                                                },
+                                                {
+                                                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#canceled"
+                                                }
+                                            ]
+                                        }
+                                    }
                                 }
                             },
                             "variantManagement": "Page",
