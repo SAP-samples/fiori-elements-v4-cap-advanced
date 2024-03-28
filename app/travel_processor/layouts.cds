@@ -296,3 +296,114 @@ annotate TravelService.TravelAgency with @(Communication.Contact #contact: {
         country : CountryCode_code,
     }, ],
 });
+
+annotate TravelService.Travel with @(
+    UI.SelectionPresentationVariant #tableView : {
+        $Type              : 'UI.SelectionPresentationVariantType',
+        PresentationVariant: ![@UI.PresentationVariant],
+        SelectionVariant   : {
+            $Type        : 'UI.SelectionVariantType',
+            SelectOptions: [{
+                $Type       : 'UI.SelectOptionType',
+                PropertyName: TravelStatus_code,
+                Ranges      : [{
+                    $Type : 'UI.SelectionRangeType',
+                    Sign  : #I,
+                    Option: #EQ,
+                    Low   : 'O',
+                }, ],
+            }],
+        },
+        Text               : '{i18n>Open}',
+    },
+    UI.LineItem #tableView                     : [
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action: 'TravelService.rejectTravel',
+            Label : 'rejectTravel',
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: Description,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: LastChangedAt,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: TravelID,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: to_Customer_CustomerID,
+        },
+    ],
+    UI.SelectionPresentationVariant #tableView1: {
+        $Type              : 'UI.SelectionPresentationVariantType',
+        PresentationVariant: {
+            $Type         : 'UI.PresentationVariantType',
+            Visualizations: ['@UI.LineItem#tableView', ],
+        },
+        SelectionVariant   : {
+            $Type        : 'UI.SelectionVariantType',
+            SelectOptions: [{
+                $Type       : 'UI.SelectOptionType',
+                PropertyName: TravelStatus_code,
+                Ranges      : [{
+                    $Type : 'UI.SelectionRangeType',
+                    Sign  : #I,
+                    Option: #EQ,
+                    Low   : 'A',
+                }, ],
+            }],
+        },
+        Text               : '{i18n>Accepted}',
+    }
+);
+
+annotate TravelService.Travel with @(
+    UI.LineItem #tableView1                    : [
+        {
+            $Type: 'UI.DataField',
+            Value: Description,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: LastChangedAt,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: TravelID,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: to_Agency_AgencyID,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: to_Customer_CustomerID,
+        },
+    ],
+    UI.SelectionPresentationVariant #tableView2: {
+        $Type              : 'UI.SelectionPresentationVariantType',
+        PresentationVariant: {
+            $Type         : 'UI.PresentationVariantType',
+            Visualizations: ['@UI.LineItem#tableView1', ],
+        },
+        SelectionVariant   : {
+            $Type        : 'UI.SelectionVariantType',
+            SelectOptions: [{
+                $Type       : 'UI.SelectOptionType',
+                PropertyName: TravelStatus_code,
+                Ranges      : [{
+                    $Type : 'UI.SelectionRangeType',
+                    Sign  : #I,
+                    Option: #EQ,
+                    Low   : 'X',
+                }, ],
+            }],
+        },
+        Text               : '{i18n>Canceled}',
+    }
+);
