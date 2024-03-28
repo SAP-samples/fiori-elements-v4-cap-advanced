@@ -473,3 +473,8 @@ annotate TravelService.Travel with @(UI.FieldGroup #i18nTravelAdministrativeData
         },
     ],
 });
+
+annotate TravelService.Travel @(Common.SideEffects #ReactonItemCreationOrDeletion: {
+    SourceEntities  : [to_Booking],
+    TargetProperties: ['TotalPrice']
+});
