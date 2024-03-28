@@ -10,6 +10,23 @@ init() {
 
 
   /**
+   * Function import handler: getBookingDataOfPassenger
+   * @param CustomerID
+   * @returns BookingData
+   */
+  this.on('getBookingDataOfPassenger', async (req) => {
+    const { CustomerID } = req.data
+    const allCustomerBookings = await SELECT `BookingStatus_code as status`.from (Booking) .where `to_Customer_CustomerID = ${CustomerID}`
+    const bookingData = {
+      HasNewBookings: false
+    }
+    bookingData.HasNewBookings = allCustomerBookings.some((booking) => {
+      return booking.status === 'N';
+    })
+    return bookingData
+  });
+  
+  /**
    * Fill in primary keys for new Travels.
    * Note: In contrast to Bookings and BookingSupplements that has to happen
    * upon SAVE, as multiple users could create new Travels concurrently.
