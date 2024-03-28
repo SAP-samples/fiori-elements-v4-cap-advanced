@@ -17,21 +17,21 @@
     "watch-travel_processor": "cds watch --open travel_processor/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "dependencies": {
-    "@sap/cds": "^6",
+    "@sap/cds": "^8",
     "@sap/xssec": "^3.2.7",
     "express": "^4",
     "hdb": "^0.19.1",
     "passport": "^0.6.0"
   },
   "devDependencies": {
-    "@sap/ux-specification": "UI5-1.108",
+    "@cap-js/sqlite": "^1",
+    "@sap/ux-specification": "UI5-1.120",
     "axios": "^0",
     "chai": "^4.3.0",
     "chai-as-promised": "^7.1.1",
     "chai-subset": "^1.6.0",
     "jest": "^28.1.0",
-    "qunit": "^2.9.3",
-    "sqlite3": "^5"
+    "qunit": "^2.9.3"
   },
   "cds": {
     "requires": {
@@ -74,7 +74,8 @@
       "service": true
     },
     "features": {
-      "preserve_computed": true
+      "preserve_computed": true,
+      "odata_new_adapter": false
     },
     "build": {
       "[node]": {
