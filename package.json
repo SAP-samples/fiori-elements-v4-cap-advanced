@@ -15,14 +15,14 @@
     "test:mocha": "npx mocha --timeout 20000"
   },
   "dependencies": {
-    "@sap/cds": "^6",
+    "@sap/cds": "^7",
     "@sap/xssec": "^3.2.7",
     "express": "^4",
     "hdb": "^0.19.1",
     "passport": "^0.6.0"
   },
   "devDependencies": {
-    "@sap/ux-specification": "^1.96.0",
+    "@sap/ux-specification": "UI5-1.120",
     "axios": "^0",
     "chai": "^4.3.0",
     "chai-as-promised": "^7.1.1",
