@@ -69,7 +69,7 @@ annotate TravelService.Travel with @UI: {
             ![@UI.Importance]: #High
         },
         {
-            Value            : to_Customer_CustomerID,
+            Value            : to_Customer.CustomerID,
             ![@UI.Importance]: #High
         },
         {Value: BeginDate},
@@ -495,14 +495,9 @@ annotate TravelService.Travel @(Common.SideEffects #ReactonItemCreationOrDeletio
     TargetProperties: ['TotalPrice']
 });
 
-annotate TravelService.Travel with {
+annotate TravelService.Passenger with {
     @(Common: {
         SemanticObject: 'Customer',
-        SemanticObjectMapping: [
-            {
-                LocalProperty : to_Customer_CustomerID,
-                SemanticObjectProperty: 'CustomerID'
-            }
-        ]})
-        to_Customer
-    };
+    })
+    CustomerID
+};
