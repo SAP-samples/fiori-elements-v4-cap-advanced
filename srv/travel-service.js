@@ -56,7 +56,7 @@ init() {
   /**
    * Update the Travel's TotalPrice when its BookingFee is modified.
    */
-  this.after ('PATCH', 'Travel', (_,req) => { if ('BookingFee' in req.data) {
+  this.after ('UPDATE', 'Travel', (_,req) => { if ('BookingFee' in req.data) {
     return this._update_totals4 (req.data.TravelUUID)
   }})
 
