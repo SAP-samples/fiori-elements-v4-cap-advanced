@@ -90,9 +90,15 @@ Solution branch: [solution/add-custom-micro-chart-to-object-page-header](https:/
 ### Navigate to the Display Customers App from the Manage Travels App by Pressing the Toolbar Button
 Based on branch: [solution/add-custom-micro-chart-to-object-page-header](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-custom-micro-chart-to-object-page-header)
 Solution branch: [solution/add-toolbar-button-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-toolbar-button-to-navigate-to-customer-app)
+### Navigate to the Display Customers App from the Manage Travels App by Pressing the Toolbar Button (without the mapping property)
+Based on branch: [solution/add-toolbar-button-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-toolbar-button-to-navigate-to-customer-app)
+Solution branch: [solution/add-toolbar-button-without-semantic-mapping](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-toolbar-button-without-semantic-mapping)
 ### Navigate to the Display Customers App from the Manage Travels App via a Link
 Based on branch: [solution/add-toolbar-button-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-toolbar-button-to-navigate-to-customer-app)
 Solution branch: [solution/add-link-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-link-to-navigate-to-customer-app)
+### Navigate to the Display Customers App from the Manage Travels App via a Link by Annotating the Target Property
+Based on branch: [solution/add-link-to-navigate-to-customer-app](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-link-to-navigate-to-customer-app)
+Solution branch: [solution/add-link-by-annotating-target-property](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-link-by-annotating-target-property)
 ### Add a Chart to the List Report of the Manage Travels App
 Based on branch: [solution/initial-app-state-for-analytics](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/initial-app-state-for-analytics)
 Solution branch: [solution/add-chart-to-listreport](https://github.com/SAP-samples/fiori-elements-v4-cap-advanced/tree/solution/add-chart-to-listreport)
