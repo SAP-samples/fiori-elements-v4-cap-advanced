@@ -160,6 +160,23 @@
                                         "route": "TravelObjectPage"
                                     }
                                 }
+                            },
+                            "views": {
+                                "paths": [
+                                    {
+                                        "primary": [
+                                            {
+                                                "annotationPath": "com.sap.vocabularies.UI.v1.Chart#alpChart"
+                                            }
+                                        ],
+                                        "secondary": [
+                                            {
+                                                "annotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant"
+                                            }
+                                        ],
+                                        "defaultPath": "both"
+                                    }
+                                ]
                             }
                         }
                     }

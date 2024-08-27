@@ -1,6 +1,7 @@
 using TravelService from '../../srv/travel-service';
 using from '../../db/schema';
 using from '../../db/master-data';
+using from '@sap/cds/common';
 
 //
 // annotatios that control the fiori layout
@@ -503,3 +504,26 @@ annotate TravelService.Travel with {
         ]})
         to_Customer
     };
+annotate TravelService.Travel with @(
+    Analytics.AggregatedProperty #TravelID_countdistinct : {
+        $Type : 'Analytics.AggregatedPropertyType',
+        Name : 'TravelID_countdistinct',
+        AggregatableProperty : TravelID,
+        AggregationMethod : 'countdistinct',
+        ![@Common.Label] : '{i18n>Travels}',
+    },
+    UI.Chart #alpChart : {
+        $Type : 'UI.ChartDefinitionType',
+        ChartType : #Column,
+        Dimensions : [
+            PassengerCountry,
+        ],
+        DynamicMeasures : [
+            '@Analytics.AggregatedProperty#TravelID_countdistinct',
+        ],
+        Title : '{i18n>TravelsByCustomerCountry}',
+    }
+);
+annotate TravelService.Travel with {
+    PassengerCountry @Common.Label : '{i18n>CustomerCountry}'
+};
