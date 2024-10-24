@@ -10,7 +10,8 @@
             "supportedLocales": [
                 "en",
                 "de",
-                "fr"
+                "fr",
+                ""
             ],
             "fallbackLocale": "en"
         },
@@ -34,15 +35,15 @@
         },
         "crossNavigation": {
             "inbounds": {
-                "travel-inbound": {
+                "Travel-manage": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "travel",
-                    "action": "process",
-                    "title": "Process Travels",
-                    "subTitle": "Process travels",
+                    "semanticObject": "Travel",
+                    "action": "manage",
+                    "title": "Travels",
+                    "subTitle": "Manage Travels",
                     "icon": "sap-icon://flight"
                 }
             }
@@ -85,7 +86,8 @@
                     "supportedLocales": [
                         "en",
                         "de",
-                        "fr"
+                        "fr",
+                        ""
                     ],
                     "fallbackLocale": "en"
                 }
@@ -127,19 +129,72 @@
                     "options": {
                         "settings": {
                             "entitySet": "Travel",
+                            "enhanceI18n": "i18n/customTravel.properties",
                             "controlConfiguration": {
                                 "@com.sap.vocabularies.UI.v1.SelectionFields": {
-                                    "useSemanticDateRange": true
+                                    "useSemanticDateRange": true,
+                                    "filterFields": {
+                                        "to_Agency_AgencyID": {
+                                            "visualFilter": {
+                                                "valueList": "com.sap.vocabularies.Common.v1.ValueList#visualFilter"
+                                            }
+                                        },
+                                        "to_Customer_CustomerID": {
+                                            "visualFilter": {
+                                                "valueList": "com.sap.vocabularies.Common.v1.ValueList#visualFilter"
+                                            }
+                                        },
+                                        "BeginDate": {
+                                            "visualFilter": {
+                                                "valueList": "com.sap.vocabularies.Common.v1.ValueList#visualFilter"
+                                            }
+                                        }
+                                    },
+                                    "layout": "CompactVisual"
+                                },
+                                "@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "tableSettings": {
+                                        "quickVariantSelection": {
+                                            "paths": [
+                                                {
+                                                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#open"
+                                                },
+                                                {
+                                                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#accepted"
+                                                },
+                                                {
+                                                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#canceled"
+                                                }
+                                            ]
+                                        }
+                                    }
                                 }
                             },
                             "variantManagement": "Page",
-                            "initialLoad": true,
+                            "initialLoad": "Enabled",
                             "navigation": {
                                 "Travel": {
                                     "detail": {
                                         "route": "TravelObjectPage"
                                     }
                                 }
+                            },
+                            "views": {
+                                "paths": [
+                                    {
+                                        "primary": [
+                                            {
+                                                "annotationPath": "com.sap.vocabularies.UI.v1.Chart#alpChart"
+                                            }
+                                        ],
+                                        "secondary": [
+                                            {
+                                                "annotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant"
+                                            }
+                                        ],
+                                        "defaultPath": "both"
+                                    }
+                                ]
                             }
                         }
                     }
@@ -184,7 +239,21 @@
                     "options": {
                         "settings": {
                             "entitySet": "Booking",
-                            "editableHeaderContent": false
+                            "editableHeaderContent": false,
+                            "controlConfiguration": {
+                                "to_BookSupplement/@com.sap.vocabularies.UI.v1.LineItem": {
+                                    "columns": {
+                                        "ServingTimeOfMeals": {
+                                            "header": "{i18n>servingTimeOfMeals}",
+                                            "position": {
+                                                "anchor": "DataField::Price",
+                                                "placement": "After"
+                                            },
+                                            "template": "sap.fe.cap.travel.ext.fragment.ServingTimeOfMeals"
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -193,6 +262,11 @@
         "contentDensities": {
             "compact": true,
             "cozy": true
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {}
+            }
         }
     },
     "sap.platform.abap": {
