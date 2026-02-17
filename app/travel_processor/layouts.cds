@@ -49,7 +49,8 @@ annotate TravelService.Travel with @UI: {
     },
     SelectionFields       : [
         to_Agency_AgencyID,
-        to_Customer_CustomerID
+        to_Customer_CustomerID,
+        BeginDate
     ],
     LineItem              : [
         {
@@ -526,4 +527,100 @@ annotate TravelService.Travel with @(
 );
 annotate TravelService.Travel with {
     PassengerCountry @Common.Label : '{i18n>CustomerCountry}'
+};
+annotate TravelService.Travel with @(
+    UI.Chart #visualFilter : {
+        $Type : 'UI.ChartDefinitionType',
+        ChartType : #Bar,
+        Dimensions : [
+            to_Agency_AgencyID,
+        ],
+        DynamicMeasures : [
+            '@Analytics.AggregatedProperty#TravelID_countdistinct',
+        ],
+    },
+    UI.PresentationVariant #visualFilter : {
+        $Type : 'UI.PresentationVariantType',
+        Visualizations : [
+            '@UI.Chart#visualFilter',
+        ],
+    }
+);
+annotate TravelService.Travel with {
+    to_Agency @Common.ValueList #visualFilter : {
+        $Type : 'Common.ValueListType',
+        CollectionPath : 'Travel',
+        Parameters : [
+            {
+                $Type : 'Common.ValueListParameterInOut',
+                LocalDataProperty : to_Agency_AgencyID,
+                ValueListProperty : 'to_Agency_AgencyID',
+            },
+        ],
+        PresentationVariantQualifier : 'visualFilter',
+    }
+};
+annotate TravelService.Travel with @(
+    UI.Chart #visualFilter1 : {
+        $Type : 'UI.ChartDefinitionType',
+        ChartType : #Bar,
+        Dimensions : [
+            to_Customer_CustomerID,
+        ],
+        DynamicMeasures : [
+            '@Analytics.AggregatedProperty#TravelID_countdistinct',
+        ],
+    },
+    UI.PresentationVariant #visualFilter1 : {
+        $Type : 'UI.PresentationVariantType',
+        Visualizations : [
+            '@UI.Chart#visualFilter1',
+        ],
+    }
+);
+annotate TravelService.Travel with {
+    to_Customer @Common.ValueList #visualFilter : {
+        $Type : 'Common.ValueListType',
+        CollectionPath : 'Travel',
+        Parameters : [
+            {
+                $Type : 'Common.ValueListParameterInOut',
+                LocalDataProperty : to_Customer_CustomerID,
+                ValueListProperty : 'to_Customer_CustomerID',
+            },
+        ],
+        PresentationVariantQualifier : 'visualFilter1',
+    }
+};
+annotate TravelService.Travel with @(
+    UI.Chart #visualFilter2 : {
+        $Type : 'UI.ChartDefinitionType',
+        ChartType : #Line,
+        Dimensions : [
+            BeginDate,
+        ],
+        DynamicMeasures : [
+            '@Analytics.AggregatedProperty#TravelID_countdistinct',
+        ],
+    },
+    UI.PresentationVariant #visualFilter2 : {
+        $Type : 'UI.PresentationVariantType',
+        Visualizations : [
+            '@UI.Chart#visualFilter2',
+        ],
+    }
+);
+annotate TravelService.Travel with {
+    BeginDate @Common.ValueList #visualFilter : {
+        $Type : 'Common.ValueListType',
+        CollectionPath : 'Travel',
+        Parameters : [
+            {
+                $Type : 'Common.ValueListParameterInOut',
+                LocalDataProperty : BeginDate,
+                ValueListProperty : 'BeginDate',
+            },
+        ],
+        PresentationVariantQualifier : 'visualFilter2',
+    }
 };
